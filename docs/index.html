@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puerto Rico Hoy — Noticias y Clima</title>
+<meta name="description" content="Resumen diario de noticias, política y clima de Puerto Rico. Fuentes: El Nuevo Día, El Vocero, Primera Hora, Noticel, Telemundo PR y NWS San Juan.">
+<style>
+:root {
+  --bg:#ffffff; --surface:#ffffff; --panel:#fff; --border:#dadce0;
+  --text:#202124; --muted:#5f6368; --link:#1a0dab; --accent:#1a73e8;
+  --alert-bg:#fef7e0; --alert-border:#f9ab00; --chip:#f1f3f4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#202124; --surface:#292a2d; --panel:#292a2d; --border:#3c4043;
+    --text:#e8eaed; --muted:#9aa0a6; --link:#8ab4f8; --accent:#8ab4f8;
+    --alert-bg:#3a2f14; --alert-border:#f9ab00; --chip:#3c4043;
+  }
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text);
+  font:15px/1.5 "Google Sans",Roboto,-apple-system,"Segoe UI",Arial,sans-serif; }
+a { color:inherit; text-decoration:none; }
+header { position:sticky; top:0; z-index:10; background:var(--bg);
+  border-bottom:1px solid var(--border); }
+.bar { max-width:1160px; margin:0 auto; padding:12px 20px;
+  display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.logo { font-size:22px; font-weight:400; letter-spacing:-.3px; }
+.logo b { color:var(--accent); font-weight:600; }
+.logo .flag { margin-right:8px; }
+.datebox { color:var(--muted); font-size:13px; }
+nav { margin-left:auto; display:flex; gap:4px; flex-wrap:wrap; }
+nav a { padding:6px 14px; border-radius:16px; font-size:14px; color:var(--muted); }
+nav a:hover { background:var(--chip); color:var(--text); }
+main { max-width:1160px; margin:0 auto; padding:20px; }
+.layout { display:grid; grid-template-columns:minmax(0,2fr) minmax(280px,1fr); gap:20px; }
+@media (max-width:900px) { .layout { grid-template-columns:1fr; } }
+.panel { background:var(--panel); border:1px solid var(--border);
+  border-radius:16px; padding:20px 24px; margin-bottom:20px; }
+.panel h2 { font-size:20px; font-weight:500; margin-bottom:8px; }
+.story { display:flex; gap:16px; justify-content:space-between;
+  padding:14px 0; border-top:1px solid var(--border); }
+.story:first-of-type { border-top:none; }
+.story-text { min-width:0; flex:1; }
+.story h3 { font-size:16px; font-weight:500; line-height:1.35; }
+.story.lead h3 { font-size:20px; }
+.story h3 a:hover { text-decoration:underline; }
+.story h3 a:visited { color:var(--muted); }
+.src { display:block; font-size:12px; color:var(--muted); margin-bottom:4px; }
+.desc { color:var(--muted); font-size:14px; margin-top:6px;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+time { display:block; font-size:12px; color:var(--muted); margin-top:6px; }
+.thumb { width:112px; height:112px; object-fit:cover; border-radius:12px; flex-shrink:0; }
+.story.lead .thumb { width:168px; height:120px; }
+@media (max-width:520px) { .thumb, .story.lead .thumb { width:84px; height:84px; } }
+.alerts { margin-bottom:20px; }
+.alert { background:var(--alert-bg); border:1px solid var(--alert-border);
+  border-radius:12px; padding:12px 16px; margin-bottom:8px; font-size:14px; }
+.alert strong { display:block; margin-bottom:2px; }
+.alert span { color:var(--muted); }
+.wx-now { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:12px; }
+.wx-big { font-size:32px; font-weight:500; }
+.wx-cond { color:var(--muted); font-size:14px; }
+.fc-row { display:grid; grid-template-columns:1fr auto; gap:2px 10px;
+  padding:10px 0; border-top:1px solid var(--border); font-size:14px; }
+.fc-name { font-weight:500; }
+.fc-emoji { grid-row:span 2; align-self:center; font-size:22px; }
+.fc-short { color:var(--muted); font-size:13px; grid-column:1; }
+.fc-temp { grid-column:2; grid-row:1; font-weight:500; }
+footer { max-width:1160px; margin:0 auto; padding:24px 20px 40px;
+  color:var(--muted); font-size:13px; border-top:1px solid var(--border); }
+footer a { color:var(--accent); }
+.sticky-col { position:sticky; top:76px; align-self:start; }
+@media (max-width:900px) { .sticky-col { position:static; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <span class="logo"><span class="flag">🇵🇷</span>Puerto Rico <b>Hoy</b></span>
+    <span class="datebox">Actualizado: 22 de julio de 2026, 2:06 PM AST</span>
+    <nav>
+      <a href="#portada">Portada</a><a href="#politica">Política</a><a href="#economia">Economía</a><a href="#deportes">Deportes</a><a href="#entretenimiento">Entretenimiento</a><a href="#clima">Clima</a>
+    </nav>
+  </div>
+</header>
+<main>
+<div class="alerts"><div class="alert"><strong>⚠️ Flood Advisory · Menor</strong><span>Flood Advisory issued July 22 at 12:32PM AST until July 22 at 2:30PM AST by NWS San Juan PR</span></div><div class="alert"><strong>⚠️ Heat Advisory · Moderado</strong><span>Heat Advisory issued July 22 at 10:19AM AST until July 22 at 4:00PM AST by NWS San Juan PR</span></div></div>
+<div class="layout">
+  <div>
+    <section class="panel" id="portada">
+<h2>Titulares</h2>
+<article class="story lead">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/opinion/punto-de-vista/la-masacre-del-21-de-julio/" target="_blank" rel="noopener">La masacre del 21 de julio</a></h3>
+    <p class="desc">Preocupa la forma renuente y titubeante en que se anunció la salida de Francisco Domenech e Itza García, señala Alex López Pérez</p><time>hace 6 min</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/QUMUYV6FUBAF7KCYGEVT3ITIZ4.jpg?auth=707bf6f30288a5920a98582677880fc1aefadffbd112f5a5b1ac6ac4147f23a6&amp;smart=true&amp;width=3400&amp;height=2267" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story lead">
+  <div class="story-text">
+    <span class="src">Noticel</span>
+    <h3><a href="https://noticel.com/noticias/20260722/lo-que-existe-es-una-investigacion-incompleta-senala-la-defensa-de-cabrera-al-insistir-en-duda-razonable/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=lo-que-existe-es-una-investigacion-incompleta-senala-la-defensa-de-cabrera-al-insistir-en-duda-razonable" target="_blank" rel="noopener">«Lo que existe es una investigación incompleta”, señala la defensa de Cabrera al insistir en duda razonable</a></h3>
+    <p class="desc">El jurado que atiende el caso contra Elvia Cabrera Rivera por la muerte el año pasado de la joven Gabriela Nicole Pratts Rosario escuchó por última vez al Ministerio Público y la defensa argumentar sobre la evidencia del</p><time>hace 7 min</time>
+  </div>
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/noticias/mundo/notas/trump-afirma-que-destruira-un-puente-o-una-central-electrica-por-cada-ataque-irani-en-el-estrecho-de-ormuz/" target="_blank" rel="noopener">Trump afirma que destruirá un puente o una central eléctrica por cada ataque iraní en el estrecho de Ormuz</a></h3>
+    <time>hace 15 min</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/KVSAGJJGXZEEBAXEJ6XIAM3UFA.jpg?auth=870c4382e590b67f74fdd9ee093e99056ba38ae0c47f93b81c8f5f42281a8c50&amp;smart=true&amp;width=4080&amp;height=2288" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/mundo/notas/un-restaurante-con-estrellas-michelin-servia-un-postre-con-hormigas-denunciaron-al-dueno-y-podria-ir-a-la-carcel/" target="_blank" rel="noopener">Un restaurante con estrellas Michelin servía un postre con hormigas: denunciaron al dueño y podría ir a la cárcel</a></h3>
+    <time>hace 19 min</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/3FEC5LVCHRDE3BYTMFNATBHVGA.png?auth=996802e6615f177ea5887eb9b5086cea8a90a8996c3edc489d3d90bf5eb7c422&amp;smart=true&amp;width=712&amp;height=511" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/noticias/mundo/notas/hallan-muerto-a-supuesto-captador-de-victimas-sexuales-de-jeffrey-epstein/" target="_blank" rel="noopener">Hallan muerto a supuesto captador de víctimas sexuales de Jeffrey Epstein</a></h3>
+    <time>hace 26 min</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/T63OUXEASREIJCDODAQYSZATHA.jpg?auth=2c2a7a898092de31a72c8a92c98d6eb24ff3ada4346ca15600f5793d45c8e4e5&amp;smart=true&amp;width=512&amp;height=432" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Noticel</span>
+    <h3><a href="https://noticel.com/noticias/20260722/san-juan-reune-a-13-capitales-iberoamericanas-para-atender-la-inclusion-social-y-el-sinhogarismo/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=san-juan-reune-a-13-capitales-iberoamericanas-para-atender-la-inclusion-social-y-el-sinhogarismo" target="_blank" rel="noopener">San Juan reúne a 13 capitales iberoamericanas para atender la inclusión social y el sinhogarismo</a></h3>
+    <time>hace 27 min</time>
+  </div>
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Telemundo PR</span>
+    <h3><a href="https://www.telemundopr.com/noticias/puerto-rico/empleado-de-compania-de-telefonia-impacta-barra-de-puente-en-ciales/2830581/" target="_blank" rel="noopener">Empleado de compañía de telefonía impacta barra de puente en Ciales</a></h3>
+    <time>hace 30 min</time>
+  </div><img class="thumb" src="https://media.telemundopr.com/2026/07/Foto-portada-6-2.png?fit=1920,1080&amp;quality=85&amp;strip=all" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/noticias/mundo/notas/alofoke-anuncia-que-creara-un-partido-politico-para-aspirar-a-la-presidencia-de-republica-dominicana/" target="_blank" rel="noopener">Alofoke anuncia que creará un partido político para aspirar a la presidencia de República Dominicana</a></h3>
+    <time>hace 33 min</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/D2BLGXUIYNH7RELZYHY2K5J52M.jpg?auth=b435a63a0f5f27885ad10c29c51f87ec9434ec5f4c3f845ba6fdbcd1337b00f9&amp;smart=true&amp;width=1092&amp;height=819" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/mundo/notas/encuentran-muerto-en-francia-a-daniel-siad-presunto-reclutador-de-victimas-sexuales-del-pederasta-jeffrey-epstein/" target="_blank" rel="noopener">Encuentran muerto en Francia a Daniel Siad, presunto reclutador de víctimas sexuales del pederasta Jeffrey Epstein</a></h3>
+    <time>hace 34 min</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/T63OUXEASREIJCDODAQYSZATHA.jpg?auth=2c2a7a898092de31a72c8a92c98d6eb24ff3ada4346ca15600f5793d45c8e4e5&amp;smart=true&amp;width=512&amp;height=432" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/ley-y-orden/policiacas/arrestan-en-florida-a-hombre-imputado-por-asesinato-de-el-turco-en-coamo/article_9c1a8a97-56a1-494f-b46f-0a8161d6c6d7.html" target="_blank" rel="noopener">Arrestan en Florida a hombre imputado por asesinato de &quot;El Turco&quot; en Coamo</a></h3>
+    <time>hace 35 min</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/7/fb/7fb34d90-0624-40c1-b424-b0dd4eac21a6/6a61003c532ac.image.jpg?resize=300%2C208" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Noticel</span>
+    <h3><a href="https://noticel.com/ultima-hora/20260722/salida-de-ecoelectrica-1-agrava-situacion-del-sistema-electrico/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=salida-de-ecoelectrica-1-agrava-situacion-del-sistema-electrico" target="_blank" rel="noopener">Salida de EcoEléctrica 1 agrava situación del sistema eléctrico</a></h3>
+    <time>hace 35 min</time>
+  </div>
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/el-mundo/casa-natal-de-hitler-en-austria-reabre-como-comisar-a-para-frenar-peregrinaciones-nazis/article_64650a5b-7f22-50a3-8574-a64adfbee249.html" target="_blank" rel="noopener">Casa natal de Hitler en Austria reabre como comisaría para frenar peregrinaciones nazis</a></h3>
+    <time>hace 47 min</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/5/ac/5acb0875-28e2-5a19-8ad1-e9ecb7a37837/6a60f637c65e8.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article>
+</section>
+    <section class="panel" id="politica">
+<h2>Política y Gobierno</h2>
+<article class="story lead">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/noticias/policia-tribunales/notas/detienen-a-37-migrantes-indocumentados-en-aguas-de-puerto-rico/" target="_blank" rel="noopener">Detienen a 37 migrantes indocumentados en aguas de Puerto Rico</a></h3>
+    <p class="desc">Eran de Uzbekistán, Tayikistán, República Dominicana, Ecuador, India y Haití.</p><time>hace 1 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/OMVXOID3KNAAHNIOMP6EBXC7D4.jpg?auth=8edea269a20576dd5842344b8db53f9235fc2f2a859bfae809838cba36d35e94&amp;smart=true&amp;width=1170&amp;height=870" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/noticias/gobierno-politica/notas/educacion-preparara-a-10000-estudiantes-y-a-sus-maestros-para-enfrentar-emergencias/" target="_blank" rel="noopener">Educación preparará a 10,000 estudiantes y a sus maestros para enfrentar emergencias</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/IDFNWDSPMZAEVLMN7Y6TJNYP3U.jpg?auth=afdf5a543dc51bd644679c07a1e48dd5a755aa5729355ce915a554a04597704b&amp;smart=true&amp;width=4536&amp;height=3024" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/gobierno/notas/es-el-paso-correcto-miguel-romero-espera-que-salida-de-francisco-domenech-mejore-relacion-entre-el-senado-y-el-ejecutivo/" target="_blank" rel="noopener">“Es el paso correcto”: Miguel Romero espera que salida de Francisco Domenech mejore relación entre el Senado y el Ejecutivo</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/3HCMEFBN2VFG7LPOFNSLYGVRAY.JPG?auth=3566d78f9f9e83daf162458aca2e00247965ca52208f2d9280ae97231875d59b&amp;smart=true&amp;width=4611&amp;height=3074" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/el-mundo/crisis-internas-estremecen-a-ambos-partidos-de-estados-unidos-antes-de-las-elecciones/article_8fb4366a-03d3-5c09-b2b2-6ed31d74afd7.html" target="_blank" rel="noopener">Crisis internas estremecen a ambos partidos de Estados Unidos antes de las elecciones</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/a/0d/a0d7089a-a178-5d9f-91e5-06b12ef5de53/6a60f60cb3c14.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/gobierno/notas/pfei-no-designara-fiscal-especial-contra-alcalde-de-toa-alta/" target="_blank" rel="noopener">PFEI no designará fiscal especial contra alcalde de Toa Alta</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/UAWKGAIETVGLRBAHYEDFIZX2Z4.jpg?auth=9639da3538ef39f067c8c6e6dfa31c9653897b6a2913b3aa1a8248e972524b08&amp;smart=true&amp;width=6000&amp;height=4000" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/gobierno/agencias/realizar-n-cierre-parcial-en-tramo-de-la-pr-30-en-humacao-este-s-bado/article_106053de-78fc-452d-977c-a460cecc000a.html" target="_blank" rel="noopener">Realizarán cierre parcial en tramo de la PR-30 en Humacao este sábado</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/3/29/3299bf05-8d1e-4308-b181-d22c4c9e5902/6a188a67dcd36.image.jpg?resize=300%2C168" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/gobierno/municipal/pfei-descarta-investigaci-n-contra-alcalde-de-toa-alta-por-controversia-sobre-nombramiento/article_48629793-3414-42f7-b9e2-17c176d84fad.html" target="_blank" rel="noopener">PFEI descarta investigación contra alcalde de Toa Alta por controversia sobre nombramiento</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/9/a5/9a53986a-a428-46ba-bf9c-27c129a571f6/6a60f6fd749d7.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/gobierno/municipal/procurador-del-veterano-exhorta-a-reclamar-exenci-n-contributiva-en-el-crim-antes-del-31/article_16f90464-57f1-4089-9c5a-26f26c31701f.html" target="_blank" rel="noopener">Procurador del Veterano exhorta a reclamar exención contributiva en el CRIM antes del 31 de julio</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/8/33/8334b306-6ceb-4fee-af72-a04e8b135c2b/6a60fe020e766.image.jpg?resize=300%2C265" alt="" loading="lazy" onerror="this.style.display='none'">
+</article>
+</section><section class="panel" id="economia">
+<h2>Economía y Negocios</h2>
+<article class="story lead">
+  <div class="story-text">
+    <span class="src">Telemundo PR</span>
+    <h3><a href="https://www.telemundopr.com/noticias/puerto-rico/luma-energy-anuncia-relevos-de-carga-por-deficiencias-en-la-generacion-2/2830606/" target="_blank" rel="noopener">LUMA Energy anuncia relevos de carga por deficiencias en la generación</a></h3>
+    <p class="desc">Cerca de 100 mil clientes de LUMA Energy se quedaron sin servicio eléctrico en la mañana de este miércoles por la salida abrupta de la cogeneradora EcoEléctrica. “La Unidad #1 de EcoEléctrica salió de servicio a las 11:2</p><time>hace 1 min</time>
+  </div><img class="thumb" src="https://media.telemundopr.com/2022/10/FeonjdmXwAMTkDC.jpg?quality=85&amp;strip=all&amp;fit=2048,1364" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/locales/notas/compania-a-cargo-de-generacion-de-energia-temporal-asegura-que-proyecto-esta-a-tiempo-pese-a-cambios-en-consorcio/" target="_blank" rel="noopener">Compañía a cargo de generación de energía temporal asegura que proyecto “está a tiempo” pese a cambios en consorcio</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/R3VVYNRUDBDYHIIYKK455LOSLA.JPG?auth=eda67d404d21ba08c6f6afe889d51f3e5855a8ab5ca6f87acaf8fe3e10e3a057&amp;smart=true&amp;width=5220&amp;height=3480" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/noticias/puerto-rico/notas/luma-activa-apagones-selectivos-tras-salida-de-ecoelectrica/" target="_blank" rel="noopener">LUMA activa apagones selectivos tras salida de EcoEléctrica</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/HLFYPQN63RA7FMMMMTHRYK2ZUM.jpg?auth=823bdd480e82aeb6d8f352d904d0d6ebbe2235e884aa47ecae6dd8a43370d965&amp;smart=true&amp;width=3285&amp;height=1794" alt="" loading="lazy" onerror="this.style.display='none'">
+</article>
+</section><section class="panel" id="deportes">
+<h2>Deportes</h2>
+<article class="story lead">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/deportes/futbol/notas/ferran-torres-el-autor-del-gol-de-la-victoria-de-espana-versus-argentina-tiene-una-fundacion-de-animales-rescatados/" target="_blank" rel="noopener">Ferran Torres, el autor del gol de la victoria de España versus Argentina, tiene una fundación de animales rescatados</a></h3>
+    <p class="desc">El delantero español aprovecha su reconocimiento para promover la adopción responsable y apoyar el rescate de animales</p><time>hace 50 min</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/TQJZJYOBCBFGRCWLSTACFIE6NM.jpg?auth=ee75523ce1b27354126f704651ccb4e60d0d995b52093a1d2ddd1015ebd426f1&amp;smart=true&amp;width=736&amp;height=736" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/deportes/sal-n-de-la-fama-dedica-exhibici-n-a-stephen-curry/article_123b2c31-b439-4b4d-894d-3d6e338b6c4b.html" target="_blank" rel="noopener">Salón de la Fama dedica exhibición a Stephen Curry</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/1/c3/1c3b8ebd-6ec0-46d1-8ec8-de14d4e7efd1/6a60d97a0325d.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/deportes/otros-deportes/notas/gfr-media-acompanara-a-puerto-rico-y-llevara-toda-la-emocion-de-santo-domingo-2026/" target="_blank" rel="noopener">GFR Media acompañará a la delegación de Puerto Rico y llevará toda la emoción de Santo Domingo 2026</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/FKIS33ROWBBHTGJ4MZHZP6GT6U.JPG?auth=58fde1c7e021b0840606e808f97debb934cb3b9237ef4aad2466e9ba3536a394&amp;smart=true&amp;width=5472&amp;height=3648" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/deportes/otros/notas/gfr-media-acompanara-a-los-nuestros-en-santo-domingo-2026/" target="_blank" rel="noopener">GFR Media acompañará a “Los Nuestros” en Santo Domingo 2026</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/FKIS33ROWBBHTGJ4MZHZP6GT6U.JPG?auth=58fde1c7e021b0840606e808f97debb934cb3b9237ef4aad2466e9ba3536a394&amp;smart=true&amp;width=5472&amp;height=3648" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/deportes/baloncesto/notas/ramses-melendez-firma-contrato-para-jugar-en-la-primera-division-del-baloncesto-de-italia/" target="_blank" rel="noopener">Ramses Meléndez firma contrato para jugar en la primera división del baloncesto de Italia</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/IUF62GWYA5DXNFXEQR2SLKP6E4.JPEG?auth=ffc5f7c206a4b3284ae4f1d09d2e302c7ffbda8696415ef97ee46ff246d8aead&amp;smart=true&amp;width=3984&amp;height=2656" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/deportes/futbol/notas/presidente-de-la-liga-espanola-acusa-a-gianni-infantino-de-destruir-la-industria-del-futbol/" target="_blank" rel="noopener">Presidente de La Liga española acusa a Gianni Infantino de “destruir la industria del fútbol”</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/UCRXZ47ZU5GM3NPOC52KQOO3ZI.jpg?auth=ed251461b2a8a7fb113c49891e29a3a76672a7b1740a0aa01b38b87c5aca9266&amp;smart=true&amp;width=1024&amp;height=682" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/deportes/baloncesto/notas/el-salon-de-la-fama-del-baloncesto-abre-una-exposicion-dedicada-a-stephen-curry-algo-sin-precedentes-para-un-jugador-aun-activo/" target="_blank" rel="noopener">El Salón de la Fama del Baloncesto abre una exposición dedicada a Stephen Curry, algo sin precedentes para un jugador activo</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/A3TFB4Z3EJFJNEH7A6LOXOXRUA.jpg?auth=e669b2000fc54814dd30770d7672dd2da8bfb3552092d52b00822adf78f94c86&amp;smart=true&amp;width=7103&amp;height=4735" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/deportes/beisbol/notas/los-jugadores-de-la-mlb-proponen-ampliar-los-criterios-de-elegibilidad-para-el-draft/" target="_blank" rel="noopener">Los jugadores de la MLB proponen ampliar los criterios de elegibilidad para el draft</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/A4WUYQNZEZGD5LY5SPQDWAJQTI.jpg?auth=788d8b876017cfa94fb4bf2e048e8a380c64c3d0ea7e84be7e66b0b4738b6d8b&amp;smart=true&amp;width=3144&amp;height=2096" alt="" loading="lazy" onerror="this.style.display='none'">
+</article>
+</section><section class="panel" id="entretenimiento">
+<h2>Entretenimiento y Cultura</h2>
+<article class="story lead">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/entretenimiento/farandula/notas/hades66-sufre-golpe-en-la-cabeza-durante-una-presentacion-y-enfrenta-a-fanatico/" target="_blank" rel="noopener">Hades66 sufre golpe en la cabeza durante una presentación y enfrenta a fanático</a></h3>
+    <p class="desc">El cantante detuvo el concierto para enfrentar al fanático señalado como el responsable</p><time>hace 3 min</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/HM5VMV3RJ5HZLISZAJQPP36DLU.jpg?auth=ce0b7e468674e821c0ef47fc62456e4ca44bf122edfe528e71438324fe764810&amp;smart=true&amp;width=6000&amp;height=4000" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/entretenimiento/peliculas-series/notas/abre-el-cinerama-dome-emblematico-cine-de-hollywood-que-cerro-sus-puertas-por-la-pandemia/" target="_blank" rel="noopener">Abre el Cinerama Dome, emblemático cine de Hollywood que cerró sus puertas por la pandemia</a></h3>
+    <time>hace 27 min</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/KZLHOBBL6VBABGV43V2E6A6EQY.jpg?auth=ef75bdab75ce2666b744010d6744a9250f2e5c8ac9ca37e5ccbf882e9c83b6c3&amp;smart=true&amp;width=512&amp;height=359" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/escenario/television/operaci-n-triunfo-estados-unidos-expulsa-a-una-concursante-por-romper-las-reglas/article_b8df357b-5190-4a84-8231-847656e18438.html" target="_blank" rel="noopener">Operación Triunfo Estados Unidos expulsa a una concursante por romper las reglas</a></h3>
+    <time>hace 36 min</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/5/3d/53d4ff83-3f12-4caf-a214-9c4d5083dd9f/6a60f4b44b172.image.jpg?resize=300%2C184" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/entretenimiento/farandula/notas/causa-polemica-rosalia-tras-republicar-video-de-mia-khalifa-burlandose-de-la-derrota-de-argentina-en-el-mundial/" target="_blank" rel="noopener">Causa polémica Rosalía tras republicar video de Mia Khalifa burlándose de la derrota de Argentina en el mundial</a></h3>
+    <time>hace 40 min</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/7VKOULOPP5E7RCFJSEW7UTR7KU.jpg?auth=59e4cf5e1cc98f6b7678984ba71dabf7a750377f533572151dbf9cb3dbbf0237&amp;smart=true&amp;width=1920&amp;height=1280" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/escenario/musica/boricuas-se-unen-a-billboard-latin-music-week/article_33a97bf9-5196-406c-ad97-b8fd8126e43f.html" target="_blank" rel="noopener">Boricuas se unen a Billboard Latin Music Week</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/0/79/079f5e1f-3f60-428a-9621-2cd1ecc125a0/69d566beadf9a.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Noticel</span>
+    <h3><a href="https://noticel.com/entretenimiento/20260722/miss-universe-en-puerto-rico-sera-el-24-de-noviembre/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=miss-universe-en-puerto-rico-sera-el-24-de-noviembre" target="_blank" rel="noopener">Miss Universe en Puerto Rico será el 24 de noviembre</a></h3>
+    <time>hace 2 h</time>
+  </div>
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/entretenimiento/reinas-belleza/notas/hay-fecha-oficial-para-miss-universe-2026/" target="_blank" rel="noopener">Hay fecha oficial para Miss Universe 2026</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/23THIDERQFE4ZMO7U2PJQGLF4Q.jpg?auth=838a29f82afd8d9e71a4354707e664e7e7d3cbfd749811e4d421f1abd05fd332&amp;smart=true&amp;width=1024&amp;height=683" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/mundo/notas/condenan-a-19-personas-que-eran-parte-de-una-red-que-vendia-bebes-desde-indonesia-hacia-singapur/" target="_blank" rel="noopener">Condenan a 19 personas que eran parte de una red que vendía bebés desde Indonesia hacia Singapur</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/ZSUNZCSFKJFAXIYTDB56MFD7TA.jpg?auth=22fd4600d7a3317dde86efc9c73d6f87afb5ab48754a8b989a12019ac94647ff&amp;smart=true&amp;width=3951&amp;height=2634" alt="" loading="lazy" onerror="this.style.display='none'">
+</article>
+</section>
+  </div>
+  <div class="sticky-col">
+    <section class="panel" id="clima">
+      <h2>Clima</h2>
+      <div class="wx-now"><span class="wx-big">⛈️ 85°F</span><span class="wx-cond">San Juan · Scattered Showers And Thunderstorms</span></div>
+      <div class="fc-row">
+  <span class="fc-name">This Afternoon</span>
+  <span class="fc-emoji">⛈️</span>
+  <span class="fc-short">Scattered Showers And Thunderstorms · lluvia 40%</span>
+  <span class="fc-temp">85°F</span>
+</div><div class="fc-row">
+  <span class="fc-name">Tonight</span>
+  <span class="fc-emoji">🌧️</span>
+  <span class="fc-short">Isolated Rain Showers · lluvia 20%</span>
+  <span class="fc-temp">80°F</span>
+</div><div class="fc-row">
+  <span class="fc-name">Thursday</span>
+  <span class="fc-emoji">🌧️</span>
+  <span class="fc-short">Isolated Rain Showers then Haze · lluvia 20%</span>
+  <span class="fc-temp">86°F</span>
+</div><div class="fc-row">
+  <span class="fc-name">Thursday Night</span>
+  <span class="fc-emoji">🌫️</span>
+  <span class="fc-short">Haze · lluvia 10%</span>
+  <span class="fc-temp">80°F</span>
+</div><div class="fc-row">
+  <span class="fc-name">Friday</span>
+  <span class="fc-emoji">🌫️</span>
+  <span class="fc-short">Haze · lluvia 20%</span>
+  <span class="fc-temp">83°F</span>
+</div><div class="fc-row">
+  <span class="fc-name">Friday Night</span>
+  <span class="fc-emoji">🌫️</span>
+  <span class="fc-short">Haze · lluvia 3%</span>
+  <span class="fc-temp">81°F</span>
+</div>
+      <time>Fuente: Servicio Nacional de Meteorología (NWS San Juan)</time>
+    </section>
+  </div>
+</div>
+</main>
+<footer>
+  <p>Resumen generado automáticamente cada día. Fuentes:
+  <a href="https://www.elnuevodia.com" target="_blank" rel="noopener">El Nuevo Día</a> ·
+  <a href="https://www.elvocero.com" target="_blank" rel="noopener">El Vocero</a> ·
+  <a href="https://www.primerahora.com" target="_blank" rel="noopener">Primera Hora</a> ·
+  <a href="https://www.noticel.com" target="_blank" rel="noopener">Noticel</a> ·
+  <a href="https://www.telemundopr.com" target="_blank" rel="noopener">Telemundo PR</a> ·
+  <a href="https://www.weather.gov/sju/" target="_blank" rel="noopener">NWS San Juan</a>.
+  Los titulares enlazan a los artículos originales de cada medio.</p>
+</footer>
+</body>
+</html>
