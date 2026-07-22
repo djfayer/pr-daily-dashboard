@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇵🇷 Puerto Rico Daily Dashboard • July 22, 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        body { font-family: 'Inter', system_ui, sans-serif; }
+        .news-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .news-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
+        .section-header { font-family: 'Playfair Display', Georgia, serif; }
+        .pr-red { color: #C8102E; }
+    </style>
+</head>
+<body class="bg-zinc-50 text-zinc-900">
+    <!-- Navbar -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="text-3xl">🇵🇷</div>
+                <div>
+                    <h1 class="text-2xl font-semibold tracking-tight">Puerto Rico Daily</h1>
+                    <p class="text-xs text-zinc-500 -mt-1">News • Politics • Weather</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-x-4 text-sm">
+                <div class="px-3 py-1 bg-zinc-100 rounded-full text-zinc-600 flex items-center gap-x-2">
+                    <i class="fas fa-sync-alt"></i>
+                    <span>Updated: July 22, 2026 • ~3:00 PM AST</span>
+                </div>
+                <a href="#weather" class="px-4 py-2 text-sm font-medium hover:bg-zinc-100 rounded-lg">Weather</a>
+                <a href="#news" class="px-4 py-2 text-sm font-medium hover:bg-zinc-100 rounded-lg">News</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-6 pt-8 pb-16">
+        
+        <!-- Header -->
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <h2 class="section-header text-5xl font-bold tracking-tighter">Daily Dashboard</h2>
+                <p class="text-xl text-zinc-600 mt-1">July 22, 2026 • Puerto Rico</p>
+            </div>
+            <div class="text-right text-sm text-zinc-500">
+                Sources: El Vocero • El Nuevo Día • Caribbean Business • San Juan Daily Star • NWS San Juan + more
+            </div>
+        </div>
+
+        <!-- WEATHER SECTION -->
+        <div id="weather" class="mb-12">
+            <div class="flex items-center gap-x-3 mb-4">
+                <i class="fas fa-cloud-sun text-3xl text-blue-600"></i>
+                <h3 class="section-header text-3xl font-semibold">Weather</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Current San Juan -->
+                <div class="bg-white rounded-3xl p-6 shadow-sm border">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="text-5xl font-semibold">86°</span>
+                                <span class="text-2xl text-zinc-400">F</span>
+                            </div>
+                            <p class="text-lg font-medium">San Juan / Metro</p>
+                            <p class="text-sm text-zinc-500">Partly sunny • Hazy</p>
+                        </div>
+                        <div class="text-right">
+                            <i class="fas fa-cloud-sun text-5xl text-amber-500"></i>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t text-sm">
+                        <div class="flex justify-between"><span>Feels like</span> <span class="font-medium">~92°</span></div>
+                        <div class="flex justify-between"><span>Wind</span> <span class="font-medium">SE 15 mph</span></div>
+                        <div class="flex justify-between"><span>Humidity</span> <span class="font-medium">~70%</span></div>
+                    </div>
+                    <div class="mt-3 text-xs px-3 py-1 bg-amber-100 text-amber-700 rounded-full inline-block">Heat Advisory in effect</div>
+                </div>
+
+                <!-- Forecast -->
+                <div class="md:col-span-2 bg-white rounded-3xl p-6 shadow-sm border">
+                    <h4 class="font-semibold mb-4">3-Day Forecast (San Juan area)</h4>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="font-medium">Today (Jul 22)</div>
+                            <div class="text-3xl font-semibold mt-1">86° / 76°</div>
+                            <div class="text-sm text-zinc-500">Scattered showers &amp; storms (50%)</div>
+                            <div class="text-xs mt-1 text-amber-600">Hazy</div>
+                        </div>
+                        <div>
+                            <div class="font-medium">Thu Jul 23</div>
+                            <div class="text-3xl font-semibold mt-1">88° / 76°</div>
+                            <div class="text-sm text-zinc-500">Isolated showers midday</div>
+                            <div class="text-xs mt-1 text-amber-600">Widespread haze</div>
+                        </div>
+                        <div>
+                            <div class="font-medium">Fri Jul 24</div>
+                            <div class="text-3xl font-semibold mt-1">~87° / 77°</div>
+                            <div class="text-sm text-zinc-500">Isolated showers</div>
+                            <div class="text-xs mt-1 text-amber-600">Hot &amp; hazy</div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-zinc-500 mt-4">Source: National Weather Service San Juan • Typical summer pattern with afternoon/evening showers.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEY STORIES / NEWS -->
+        <div id="news">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="section-header text-3xl font-semibold">Top Stories</h3>
+                <a href="https://www.elvocero.com/" target="_blank" class="text-sm flex items-center gap-x-1 text-blue-600 hover:underline">View all on El Vocero <i class="fas fa-external-link-alt text-xs"></i></a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Story 1: Domenech -->
+                <div class="news-card bg-white rounded-3xl p-6 shadow-sm border flex flex-col">
+                    <div class="flex items-center gap-x-2 mb-3">
+                        <span class="px-2.5 py-0.5 text-xs font-medium bg-red-100 text-red-700 rounded-full">POLITICS</span>
+                        <span class="text-xs text-zinc-500">El Vocero • Caribbean Business • 2h ago</span>
+                    </div>
+                    <h4 class="font-semibold text-lg leading-tight mb-2">Governor chooses replacement for Francisco Domenech as Chief of Staff — announcement coming “at the opportune moment”</h4>
+                    <p class="text-sm text-zinc-600 flex-1">Gov. Jenniffer González Colón confirmed she has already selected the new Secretary of the Gobernación. The new appointee will not also lead AAFAF. Domenech departs in August amid ongoing investigations and Senate pressure.</p>
+                    <div class="mt-4 text-xs">
+                        <a href="https://www.elvocero.com/gobierno/gobernadora-escogi-al-sustituto-de-francisco-domenech-esto-har-tras-salir-de-fortaleza/article_7d1c39ba-7e3d-46c3-8b2b-0e6250563f17.html" target="_blank" class="text-blue-600 hover:underline">Read on El Vocero →</a>
+                    </div>
+                </div>
+
+                <!-- Story 2: Water Crisis -->
+                <div class="news-card bg-white rounded-3xl p-6 shadow-sm border flex flex-col">
+                    <div class="flex items-center gap-x-2 mb-3">
+                        <span class="px-2.5 py-0.5 text-xs font-medium bg-orange-100 text-orange-700 rounded-full">ECONOMY / CRISIS</span>
+                        <span class="text-xs text-zinc-500">El Vocero • Caribbean Business • Today</span>
+                    </div>
+                    <h4 class="font-semibold text-lg leading-tight mb-2">Water crisis deepens: Daily losses in millions for businesses &amp; manufacturers turn to water reuse</h4>
+                    <p class="text-sm text-zinc-600 flex-1">Severe drought continues. PRASA and manufacturers discussing solutions. Water outages costing small businesses up to $20 million per day. Meteorologists warn drought may last until March 2027.</p>
+                    <div class="mt-4 text-xs">
+                        <a href="https://www.elvocero.com/economia/crisis-de-agua-provoca-p-rdidas-diarias-millonarias-en-la-isla/article_986ebc3f-a153-4758-8a65-91fe437528d2.html" target="_blank" class="text-blue-600 hover:underline">Read on El Vocero →</a>
+                    </div>
+                </div>
+
+                <!-- Story 3: Flights -->
+                <div class="news-card bg-white rounded-3xl p-6 shadow-sm border flex flex-col">
+                    <div class="flex items-center gap-x-2 mb-3">
+                        <span class="px-2.5 py-0.5 text-xs font-medium bg-sky-100 text-sky-700 rounded-full">LOCAL</span>
+                        <span class="text-xs text-zinc-500">El Vocero • Today</span>
+                    </div>
+                    <h4 class="font-semibold text-lg leading-tight mb-2">~1,557 passengers affected by 12 flight cancellations at Luis Muñoz Marín Airport</h4>
+                    <p class="text-sm text-zinc-600 flex-1">Cancellations due to adverse weather affecting the U.S. Northeast coast. Mix of arrivals and departures impacted.</p>
+                    <div class="mt-4 text-xs">
+                        <a href="https://www.elvocero.com/economia/sobre-1-500-pasajeros-afectados-por-nuevas-cancelaciones-de-vuelos-en-el-aeropuerto-luis-mu/article_eaf0280d-21a7-4c6c-abbd-5cce01ad2fb4.html" target="_blank" class="text-blue-600 hover:underline">Read on El Vocero →</a>
+                    </div>
+                </div>
+
+                <!-- Story 4: Labor -->
+                <div class="news-card bg-white rounded-3xl p-6 shadow-sm border flex flex-col">
+                    <div class="flex items-center gap-x-2 mb-3">
+                        <span class="px-2.5 py-0.5 text-xs font-medium bg-emerald-100 text-emerald-700 rounded-full">ECONOMY</span>
+                        <span class="text-xs text-zinc-500">San Juan Daily Star • El Vocero • Today</span>
+                    </div>
+                    <h4 class="font-semibold text-lg leading-tight mb-2">Labor force participation rises to 45.2% in June</h4>
+                    <p class="text-sm text-zinc-600 flex-1">Continued growth in workforce and employment according to latest Department of Labor data. Slight uptick in unemployment tied to seasonal factors.</p>
+                </div>
+
+                <!-- Story 5: FOMB / Economy -->
+                <div class="news-card bg-white rounded-3xl p-6 shadow-sm border flex flex-col">
+                    <div class="flex items-center gap-x-2 mb-3">
+                        <span class="px-2.5 py-0.5 text-xs font-medium bg-purple-100 text-purple-700 rounded-full">GOVERNMENT</span>
+                        <span class="text-xs text-zinc-500">Caribbean Business • Recent</span>
+                    </div>
+                    <h4 class="font-semibold text-lg leading-tight mb-2">FOMB certifies $33.6B budget; warns of risks. Economy shows recession signals.</h4>
+                    <p class="text-sm text-zinc-600 flex-1">Second consecutive balanced budget under current administration. Economic indicators posted sixth straight monthly decline.</p>
+                </div>
+
+                <!-- Story 6: PREPA / Energy -->
+                <div class="news-card bg-white rounded-3xl p-6 shadow-sm border flex flex-col">
+                    <div class="flex items-center gap-x-2 mb-3">
+                        <span class="px-2.5 py-0.5 text-xs font-medium bg-yellow-100 text-yellow-700 rounded-full">ENERGY</span>
+                        <span class="text-xs text-zinc-500">Caribbean Business • Recent</span>
+                    </div>
+                    <h4 class="font-semibold text-lg leading-tight mb-2">FOMB pushes $3B settlement offer in PREPA debt restructuring; bondholder appeal risks rate hikes</h4>
+                    <p class="text-sm text-zinc-600 flex-1">Latest move to resolve long-standing power company debt. Officials warn delays could slow economic recovery.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Additional Quick Links -->
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-3xl p-6 border">
+                <h4 class="font-semibold mb-3 flex items-center gap-x-2"><i class="fas fa-balance-scale text-red-600"></i> Politics &amp; Governance</h4>
+                <ul class="text-sm space-y-2 text-zinc-700">
+                    <li>• FOMB flags executive orders on emergency reserve funds</li>
+                    <li>• Ongoing scrutiny around former DDEC leadership and La Fortaleza officials</li>
+                    <li>• Senate President Rivera Schatz calls for changes in administration</li>
+                </ul>
+                <a href="https://www.elnuevodia.com/" target="_blank" class="text-xs text-blue-600 mt-3 inline-block hover:underline">More on El Nuevo Día →</a>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-6 border">
+                <h4 class="font-semibold mb-3 flex items-center gap-x-2"><i class="fas fa-globe text-blue-600"></i> Other Notable</h4>
+                <ul class="text-sm space-y-2 text-zinc-700">
+                    <li>• Miss Universe 2026 final set for Coliseo de Puerto Rico</li>
+                    <li>• Island-wide police operation: dozens arrested, weapons seized</li>
+                    <li>• Strong historical tourism numbers continuing</li>
+                </ul>
+                <p class="text-xs text-zinc-500 mt-3">Full coverage on El Vocero and Primera Hora.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-12 pt-8 border-t text-center text-xs text-zinc-500">
+            <p>This is a manually curated static snapshot for July 22, 2026. Data aggregated from public sources for convenience.</p>
+            <p class="mt-1">Primary sources: <a href="https://www.elvocero.com/" class="underline">elvocero.com</a> • <a href="https://www.elnuevodia.com/" class="underline">endi.com / elnuevodia.com</a> • Caribbean Business • San Juan Daily Star • NWS San Juan</p>
+            <p class="mt-2">For the most up-to-date information, visit the original websites directly. Refresh this page or ask me for an updated version tomorrow.</p>
+        </div>
+    </div>
+</body>
+</html>
