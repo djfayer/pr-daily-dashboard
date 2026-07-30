@@ -26,14 +26,28 @@ FEEDS = [
     ("El Vocero", "https://www.elvocero.com/search/?f=rss&t=article&l=30"),
     ("El Vocero", "https://www.elvocero.com/search/?f=rss&t=article&l=15&c=gobierno*"),
     ("Primera Hora", "https://www.primerahora.com/arc/outboundfeeds/rss/?outputType=xml"),
+    ("El Vocero", "https://www.elvocero.com/search/?f=rss&t=article&l=15&c=ley-y-orden*"),
     ("Noticel", "https://noticel.com/feed/"),
     ("Telemundo PR", "https://www.telemundopr.com/?rss=y"),
+    ("Metro PR", "https://www.metro.pr/arc/outboundfeeds/rss/?outputType=xml"),
+    ("WAPA TV", "https://www.wapa.tv/search/?f=rss&t=article&l=20"),
+    ("NotiUno", "https://www.notiuno.com/search/?f=rss&t=article&l=20"),
+    ("Radio Isla", "https://radioisla.tv/feed/"),
+    ("CPI", "https://periodismoinvestigativo.com/feed/"),
+    ("Es Noticia", "https://esnoticiapr.com/feed/"),
 ]
+
+# PRPD crime-incidence layers (NIBRS, ~30-day lag); /0 = current year, /1 = 2012-present
+CRIME_API = ("https://utility.arcgis.com/usrsvcs/servers/"
+             "8abf26c4f0074515ac63c8e9c9d0c5fc/rest/services/"
+             "IncidenciaCriminalPublica/FeatureServer")
 
 FORECAST_URL = "https://api.weather.gov/gridpoints/SJU/162,132/forecast"
 ALERTS_URL = "https://api.weather.gov/alerts/active?area=PR"
 
 SECTIONS = [
+    ("crimen", "Crimen y Seguridad",
+     r"ley-y-orden|policiac|crimen|asesinat|homicid|tiroteo|balacera|arrest|feminicid|secuestro|violencia-domestica|violencia-de-genero|narcotrafic|fugitivo|operativo-|imputad|convicto"),
     ("politica", "Política y Gobierno",
      r"politica|gobierno|legislatur|senado|camara-de-repres|eleccion|gobernador|fortaleza|alcalde|municipio|tribunal|justicia|congreso|estadidad|junta-de-control|junta-de-supervision|fiscal"),
     ("economia", "Economía y Negocios",
@@ -169,6 +183,47 @@ def get_weather():
     return forecast, alerts
 
 
+def get_homicides():
+    """Year-to-date murder tally from the PRPD crime-incidence service,
+    with a same-period prior-year comparison. Data lags ~30 days."""
+    import urllib.parse
+    try:
+        cur = json.loads(fetch(
+            f"{CRIME_API}/0/query?where=FK_delito_cometido_Tipo_I%3D1"
+            "&returnCountOnly=true&f=json"))["count"]
+        stats = urllib.parse.quote(
+            '[{"statisticType":"max","onStatisticField":"fecha_ocurrencia",'
+            '"outStatisticFieldName":"maxd"}]')
+        maxd_ms = json.loads(fetch(
+            f"{CRIME_API}/0/query?where=FK_delito_cometido_Tipo_I%3D1"
+            f"&outStatistics={stats}&f=json"))["features"][0]["attributes"]["maxd"]
+        as_of = datetime.fromtimestamp(maxd_ms / 1000, tz=timezone.utc).astimezone(AST)
+        prev_where = urllib.parse.quote(
+            "FK_delito_cometido_Tipo_I=1 AND "
+            f"fecha_ocurrencia >= DATE '{as_of.year - 1}-01-01' AND "
+            f"fecha_ocurrencia <= DATE '{as_of.year - 1}-{as_of.month:02d}-{as_of.day:02d}'")
+        prev = json.loads(fetch(
+            f"{CRIME_API}/1/query?where={prev_where}"
+            "&returnCountOnly=true&f=json"))["count"]
+        return {"year": as_of.year, "count": cur, "prev": prev, "as_of": as_of}
+    except Exception as e:
+        print(f"  ! homicides: {e}")
+        return None
+
+
+MONTHS_ES = {"January": "enero", "February": "febrero", "March": "marzo",
+             "April": "abril", "May": "mayo", "June": "junio", "July": "julio",
+             "August": "agosto", "September": "septiembre", "October": "octubre",
+             "November": "noviembre", "December": "diciembre"}
+
+
+def fecha_es(dt, fmt="%-d de %B"):
+    s = dt.strftime(fmt)
+    for en, es_m in MONTHS_ES.items():
+        s = s.replace(en, es_m)
+    return s
+
+
 # ---------------------------------------------------------------- rendering
 
 def esc(s):
@@ -215,7 +270,7 @@ def section_html(sec_id, label, items, lead_count=1, limit=8):
 SEVERITY_ES = {"Extreme": "Extremo", "Severe": "Severo", "Moderate": "Moderado", "Minor": "Menor"}
 
 
-def render(items, forecast, alerts):
+def render(items, forecast, alerts, homicides=None):
     by_sec = {}
     for it in items:
         by_sec.setdefault(it["section"], []).append(it)
@@ -253,13 +308,20 @@ def render(items, forecast, alerts):
         section_html(sid, label, by_sec.get(sid, []))
         for sid, label, _ in SECTIONS)
 
-    stamp = NOW.strftime("%-d de %B de %Y, %-I:%M %p AST")
-    months = {"January": "enero", "February": "febrero", "March": "marzo", "April": "abril",
-              "May": "mayo", "June": "junio", "July": "julio", "August": "agosto",
-              "September": "septiembre", "October": "octubre", "November": "noviembre",
-              "December": "diciembre"}
-    for en, es_m in months.items():
-        stamp = stamp.replace(en, es_m)
+    stamp = fecha_es(NOW, "%-d de %B de %Y, %-I:%M %p AST")
+
+    tally_html = ""
+    if homicides:
+        diff = homicides["count"] - homicides["prev"]
+        pct = (diff / homicides["prev"] * 100) if homicides["prev"] else 0
+        arrow = "▲" if diff > 0 else ("▼" if diff < 0 else "•")
+        cls = "up" if diff > 0 else ("down" if diff < 0 else "")
+        tally_html = f'''<section class="panel tally" id="asesinatos">
+      <h2>Asesinatos en {homicides["year"]}</h2>
+      <div class="tally-num">{homicides["count"]}</div>
+      <div class="tally-cmp {cls}">{arrow} {abs(diff)} ({pct:+.1f}%) vs. mismo periodo de {homicides["year"] - 1} ({homicides["prev"]})</div>
+      <time>Datos: Policía de Puerto Rico (NIBRS), hasta el {esc(fecha_es(homicides["as_of"]))} — se publican con ~30 días de rezago y no son estadísticas oficiales certificadas.</time>
+    </section>'''
 
     return f'''<!DOCTYPE html>
 <html lang="es">
@@ -336,6 +398,14 @@ footer {{ max-width:1160px; margin:0 auto; padding:24px 20px 40px;
   color:var(--muted); font-size:13px; border-top:1px solid var(--border); }}
 footer a {{ color:var(--accent); }}
 .sticky-col {{ position:sticky; top:76px; align-self:start; }}
+.tally h2 {{ font-size:16px; color:var(--muted); font-weight:500; }}
+.tally-num {{ font-size:44px; font-weight:600; line-height:1.1; color:#d93025; }}
+@media (prefers-color-scheme: dark) {{ .tally-num {{ color:#f28b82; }} }}
+.tally-cmp {{ font-size:13px; margin-top:4px; }}
+.tally-cmp.up {{ color:#d93025; }} .tally-cmp.down {{ color:#188038; }}
+@media (prefers-color-scheme: dark) {{
+  .tally-cmp.up {{ color:#f28b82; }} .tally-cmp.down {{ color:#81c995; }} }}
+.tally time {{ margin-top:8px; }}
 @media (max-width:900px) {{ .sticky-col {{ position:static; }} }}
 </style>
 </head>
@@ -357,6 +427,7 @@ footer a {{ color:var(--accent); }}
     {columns}
   </div>
   <div class="sticky-col">
+    {tally_html}
     <section class="panel" id="clima">
       <h2>Clima</h2>
       {hero}
@@ -373,7 +444,14 @@ footer a {{ color:var(--accent); }}
   <a href="https://www.primerahora.com" target="_blank" rel="noopener">Primera Hora</a> ·
   <a href="https://www.noticel.com" target="_blank" rel="noopener">Noticel</a> ·
   <a href="https://www.telemundopr.com" target="_blank" rel="noopener">Telemundo PR</a> ·
-  <a href="https://www.weather.gov/sju/" target="_blank" rel="noopener">NWS San Juan</a>.
+  <a href="https://www.metro.pr" target="_blank" rel="noopener">Metro PR</a> ·
+  <a href="https://www.wapa.tv" target="_blank" rel="noopener">WAPA TV</a> ·
+  <a href="https://www.notiuno.com" target="_blank" rel="noopener">NotiUno</a> ·
+  <a href="https://radioisla.tv" target="_blank" rel="noopener">Radio Isla</a> ·
+  <a href="https://periodismoinvestigativo.com" target="_blank" rel="noopener">Centro de Periodismo Investigativo</a> ·
+  <a href="https://esnoticiapr.com" target="_blank" rel="noopener">Es Noticia</a> ·
+  <a href="https://www.weather.gov/sju/" target="_blank" rel="noopener">NWS San Juan</a> ·
+  <a href="https://incidenciacriminal.policia.pr.gov/publica/" target="_blank" rel="noopener">Policía de PR — Incidencia Criminal</a>.
   Los titulares enlazan a los artículos originales de cada medio.</p>
 </footer>
 </body>
@@ -386,9 +464,14 @@ def main():
     print(f"Total fresh items: {len(items)}")
     print("Fetching weather…")
     forecast, alerts = get_weather()
+    print("Fetching homicide tally…")
+    homicides = get_homicides()
+    if homicides:
+        print(f"  ✓ {homicides['count']} in {homicides['year']} "
+              f"(prev year same period: {homicides['prev']})")
     out = Path(__file__).parent / "docs" / "index.html"
     out.parent.mkdir(exist_ok=True)
-    out.write_text(render(items, forecast, alerts), encoding="utf-8")
+    out.write_text(render(items, forecast, alerts, homicides), encoding="utf-8")
     print(f"Wrote {out}")
 
 

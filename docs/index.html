@@ -73,6 +73,14 @@ footer { max-width:1160px; margin:0 auto; padding:24px 20px 40px;
   color:var(--muted); font-size:13px; border-top:1px solid var(--border); }
 footer a { color:var(--accent); }
 .sticky-col { position:sticky; top:76px; align-self:start; }
+.tally h2 { font-size:16px; color:var(--muted); font-weight:500; }
+.tally-num { font-size:44px; font-weight:600; line-height:1.1; color:#d93025; }
+@media (prefers-color-scheme: dark) { .tally-num { color:#f28b82; } }
+.tally-cmp { font-size:13px; margin-top:4px; }
+.tally-cmp.up { color:#d93025; } .tally-cmp.down { color:#188038; }
+@media (prefers-color-scheme: dark) {
+  .tally-cmp.up { color:#f28b82; } .tally-cmp.down { color:#81c995; } }
+.tally time { margin-top:8px; }
 @media (max-width:900px) { .sticky-col { position:static; } }
 </style>
 </head>
@@ -80,280 +88,361 @@ footer a { color:var(--accent); }
 <header>
   <div class="bar">
     <span class="logo"><span class="flag">🇵🇷</span>Puerto Rico <b>Hoy</b></span>
-    <span class="datebox">Actualizado: 30 de julio de 2026, 7:47 AM AST</span>
+    <span class="datebox">Actualizado: 30 de julio de 2026, 1:38 PM AST</span>
     <nav>
-      <a href="#portada">Portada</a><a href="#politica">Política</a><a href="#economia">Economía</a><a href="#deportes">Deportes</a><a href="#entretenimiento">Entretenimiento</a><a href="#clima">Clima</a>
+      <a href="#portada">Portada</a><a href="#crimen">Crimen</a><a href="#politica">Política</a><a href="#economia">Economía</a><a href="#deportes">Deportes</a><a href="#entretenimiento">Entretenimiento</a><a href="#clima">Clima</a>
     </nav>
   </div>
 </header>
 <main>
-<div class="alerts"><div class="alert"><strong>⚠️ Extreme Heat Warning · Severo</strong><span>Extreme Heat Warning issued July 30 at 2:35AM AST until July 30 at 5:00PM AST by NWS San Juan PR</span></div></div>
+<div class="alerts"><div class="alert"><strong>⚠️ Extreme Heat Warning · Severo</strong><span>Extreme Heat Warning issued July 30 at 10:04AM AST until July 30 at 5:00PM AST by NWS San Juan PR</span></div></div>
 <div class="layout">
   <div>
     <section class="panel" id="portada">
 <h2>Titulares</h2>
 <article class="story lead">
   <div class="story-text">
-    <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/noticias/estados-unidos/notas/padre-de-nino-de-10-anos-rescatado-en-california-agradece-al-salvavidas-adolescente-que-lo-saco-del-mar/" target="_blank" rel="noopener">Padre de niño de 10 años rescatado en California agradece al salvavidas adolescente que lo sacó del mar</a></h3>
-    <p class="desc">El menor perdió el equilibro y fue arrastrado por las olas el sábado en la playa de Seabright, al sur de San Francisco</p><time>hace 3 min</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/LPZIV6W6T5CXDPFRTRYG33HVLY.jpg?auth=fd2dcea791f916ea16d20e5d807f99dcdd6d6821810c29a9ab10ebe13da1867d&amp;smart=true&amp;width=384&amp;height=512" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">Telemundo PR</span>
+    <h3><a href="https://www.telemundopr.com/programas/dia-a-dia-programas-2/encuesta-de-dia-a-dia-2/2649510/" target="_blank" rel="noopener">Encuesta de Día a Día: Me parezco a mi mascota</a></h3>
+    <p class="desc">Otras noticias: Operación Triunfo 27 Jul Sube la presión en Operación Triunfo y Lalah rompe en llanto tras perder su teléfono Daddy Yankee 28 Jul Hija de Daddy Yankee presenta a su bebé: &quot;Gracias Dios por esta bendición&quot;</p><time>hace 1 min</time>
+  </div><img class="thumb" src="https://media.telemundopr.com/2026/07/Foto-portada-17-1.png?fit=1920,1080&amp;quality=85&amp;strip=all" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story lead">
   <div class="story-text">
-    <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/noticias/seguridad/notas/peaton-fallece-atropellado-en-la-autopista-luis-a-ferre-en-caguas/" target="_blank" rel="noopener">Peatón fallece atropellado en la autopista Luis A. Ferré en Caguas</a></h3>
-    <p class="desc">La Policía indicó que estaba cruzando el expreso a pie, en horas de la madrugada</p><time>hace 35 min</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/T5TWN7BLSJCCNNFWS2RVURD34M.JPG?auth=5b28f9d7fe894b203d5d62bd985d5fc532407c0e61961d435da6753b133f1cda&amp;smart=true&amp;width=3419&amp;height=2317" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/noticias/seguridad/notas/capitan-de-bote-fallece-ahogado-en-culebra-se-lanzo-al-mar-tras-ver-una-embarcacion-a-la-deriva/" target="_blank" rel="noopener">Capitán de bote fallece ahogado en Culebra: se lanzó al mar tras ver una embarcación a la deriva</a></h3>
-    <time>hace 55 min</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/WH3CO77VIJH2BLRMRIFDUWKQPA.jpg?auth=42d0609529a82413510f1feb0ac689518117f47c0daa826ffdd90e61b5b3e977&amp;smart=true&amp;width=3888&amp;height=2592" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/noticias/puerto-rico/notas/el-calor-no-da-tregua-emiten-nueva-advertencia-por-temperaturas-peligrosas-en-puerto-rico/" target="_blank" rel="noopener">El calor no da tregua: emiten nuevo aviso por temperaturas peligrosas en Puerto Rico</a></h3>
-    <time>hace 1 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/5DCVXYIWPJBFXIE5QIEUV42OYI.jpg?auth=85e37efc21bd0f3a71bd0cee4dc6f770af8aeb165183bf40f6ee87a406fd74a7&amp;smart=true&amp;width=512&amp;height=341" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">Noticel</span>
-    <h3><a href="https://noticel.com/ultima-hora/20260730/los-santeros-recuperan-ventaja-en-final-de-conferencia-b-contra-ponce/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=los-santeros-recuperan-ventaja-en-final-de-conferencia-b-contra-ponce" target="_blank" rel="noopener">Los Santeros recuperan ventaja en final de Conferencia B contra Ponce</a></h3>
-    <time>hace 1 h</time>
+    <span class="src">Radio Isla</span>
+    <h3><a href="https://radioisla.tv/ddec-confirma-que-amazon-tiene-permisos-y-avanza-hacia-la-apertura/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=ddec-confirma-que-amazon-tiene-permisos-y-avanza-hacia-la-apertura&amp;utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=ddec-confirma-que-amazon-tiene-permisos-y-avanza-hacia-la-apertura" target="_blank" rel="noopener">DDEC confirma que Amazon tiene permisos y avanza hacia la apertura</a></h3>
+    <p class="desc">El secretario del Departamento de Desarrollo Económico y Comercio (DDEC), Carlos Ríos Pierluisi, aseguró hoy, jueves, en Pega’os en la Mañana, que Amazon ya cuenta con su Permiso Único desde abril y que el gobierno no ti</p><time>hace 1 min</time>
   </div>
 </article><article class="story">
   <div class="story-text">
+    <span class="src">WAPA TV</span>
+    <h3><a href="https://wapa.tv/programas/pegate/se-deben-eliminar-los-donativos-an-nimos-a-los-partidos-pol-ticos/article_0babe0d4-2379-43e9-8418-890e943a9cd5.html" target="_blank" rel="noopener">¿Se deben eliminar los donativos anónimos a los partidos políticos?</a></h3>
+    <time>hace 8 min</time>
+  </div>
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Telemundo PR</span>
+    <h3><a href="https://www.telemundopr.com/noticias/puerto-rico/politank-consigue-prorroga-para-impugnar-multas-del-ddec/2832537/" target="_blank" rel="noopener">Politank consigue prórroga para impugnar multas del DDEC</a></h3>
+    <time>hace 10 min</time>
+  </div><img class="thumb" src="https://media.telemundopr.com/2026/03/21_RX_SREEL_POLITANK_frame_399.jpeg?quality=85&amp;strip=all&amp;fit=3840,2160" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Metro PR</span>
+    <h3><a href="https://www.metro.pr/noticias/2026/07/30/superintendente-envia-mensaje-a-policias-que-protestan-por-su-salario/" target="_blank" rel="noopener">Superintendente envía mensaje a policías que protestan por su salario</a></h3>
+    <time>hace 18 min</time>
+  </div><img class="thumb" src="https://www.metro.pr/api/image/KHFJSV5O3RH53J5X4QKSF4SAZM.jpg?w=640" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Radio Isla</span>
+    <h3><a href="https://radioisla.tv/educacion-reducira-oficiales-de-seguridad-y-mantenimiento-por-recortes-presupuestarios/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=educacion-reducira-oficiales-de-seguridad-y-mantenimiento-por-recortes-presupuestarios&amp;utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=educacion-reducira-oficiales-de-seguridad-y-mantenimiento-por-recortes-presupuestarios" target="_blank" rel="noopener">Educación reducirá oficiales de seguridad y mantenimiento por recortes presupuestarios</a></h3>
+    <time>hace 30 min</time>
+  </div>
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Metro PR</span>
+    <h3><a href="https://www.metro.pr/estilo-vida/2026/07/30/cosas-que-debes-hacer-antes-del-regreso-a-clases/" target="_blank" rel="noopener">Cosas que debes hacer antes del regreso a clases</a></h3>
+    <time>hace 31 min</time>
+  </div><img class="thumb" src="https://www.metro.pr/api/image/IU24SDQLHBEAZMUJ3KGQ3VLVAM.jpg?w=640" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Telemundo PR</span>
+    <h3><a href="https://www.telemundopr.com/noticias/puerto-rico/le-roban-vehiculo-alquilado-a-joven-en-luquillo/2832526/" target="_blank" rel="noopener">Le roban vehículo alquilado a joven en Luquillo</a></h3>
+    <time>hace 44 min</time>
+  </div><img class="thumb" src="https://media.telemundopr.com/2026/03/GettyImages-1337626069-4.jpg?quality=85&amp;strip=all&amp;fit=8192,5464" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
     <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/noticias/seguridad/notas/reportan-el-fallecimiento-de-un-hombre-en-una-piscina-en-isla-verde/" target="_blank" rel="noopener">Reportan el fallecimiento de un hombre en una piscina en Isla Verde</a></h3>
-    <time>hace 1 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/Q5MTLDTYTZEJ5OK7PDJVPIA7PQ.jpg?auth=6a521c3ebb87364cb90e01385932ed5306db30b93fc73c23ddbee0713f9d26b6&amp;smart=true&amp;width=2122&amp;height=1194" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.elnuevodia.com/noticias/mundo/notas/una-avalancha-de-migrantes-llegan-a-nado-desde-marruecos-y-colapsan-los-controles-en-espana/" target="_blank" rel="noopener">Una avalancha de migrantes llegan a nado desde Marruecos y colapsan los controles en España</a></h3>
+    <time>hace 46 min</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/O577YTOUJJG35O242UD22Q4YYU.jpg?auth=c0d5c9000eb8336e9df1b32e7279389e81731d2b649a50e15fabf767f9de4026&amp;smart=true&amp;width=1024&amp;height=625" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Noticel</span>
-    <h3><a href="https://noticel.com/ultima-hora/20260730/ataque-ruso-en-ucrania-con-70-misiles-y-280-drones-provoca-ocho-muertos-segun-zelenski/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=ataque-ruso-en-ucrania-con-70-misiles-y-280-drones-provoca-ocho-muertos-segun-zelenski" target="_blank" rel="noopener">Ataque ruso en Ucrania con 70 misiles y 280 drones provoca ocho muertos, según Zelenski</a></h3>
-    <time>hace 1 h</time>
+    <span class="src">Metro PR</span>
+    <h3><a href="https://www.metro.pr/noticias/2026/07/30/que-paso-con-los-90-millones-de-la-carrera-magisterial-educacion-espera-por-ogp-para-pagar-a-los-maestros/" target="_blank" rel="noopener">¿Qué pasó con los $90 millones de la carrera magisterial? Educación espera por OGP para pagar a los maestros</a></h3>
+    <time>hace 54 min</time>
+  </div><img class="thumb" src="https://www.metro.pr/api/image/J4FFUTN2G5GAJOVUHXKFKVXV6I.jpeg?w=640" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Es Noticia</span>
+    <h3><a href="https://esnoticiapr.com/aumenta-a-60-8-la-sequia-moderada-y-severa-en-puerto-rico/" target="_blank" rel="noopener">Aumenta a 60.8% la sequía moderada y severa en Puerto Rico</a></h3>
+    <time>hace 56 min</time>
   </div>
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Noticel</span>
-    <h3><a href="https://noticel.com/ultima-hora/20260730/bajo-custodia-de-los-federales-sujeto-que-mato-a-hombre-en-joyeria-en-quebradillas/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=bajo-custodia-de-los-federales-sujeto-que-mato-a-hombre-en-joyeria-en-quebradillas" target="_blank" rel="noopener">Bajo custodia de los federales sujeto que mató a hombre en joyería en Quebradillas</a></h3>
-    <time>hace 1 h</time>
-  </div>
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/noticias/el-nuevo-dia-educador/notas/tienes-todo-lo-necesario-para-el-regreso-a-clases-de-tus-hijos/" target="_blank" rel="noopener">¿Tienes todo lo necesario para el regreso a clases de tus hijos?</a></h3>
-    <time>hace 1 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/JM3WM5EVHJE7JNRRZUTA5RJIMA.JPG?auth=46013a57df68b14f1e34036fa3d6da50b61a3395c30c75c1b1ce30fd9a89d726&amp;smart=true&amp;width=8192&amp;height=5464" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/noticias/el-nuevo-dia-educador/notas/saber-al-alcance-nueva-tablilla-puertorriquena-honra-a-los-borinqueneers/" target="_blank" rel="noopener">Saber al alcance: Nueva tablilla puertorriqueña honra a los “Borinqueneers”</a></h3>
-    <time>hace 1 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/AU4AWZNBKNEMDGWLVGD6HJNRDI.jfif?auth=4935dc0e375e5b57cbd4c9cc9d66fe7e5a52af3d4f0ec0fc855134098bea356c&amp;smart=true&amp;width=1056&amp;height=643" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">Noticel</span>
-    <h3><a href="https://noticel.com/noticias/20260730/trump-asegura-tuvo-una-buena-reunion-con-zelenski/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=trump-asegura-tuvo-una-buena-reunion-con-zelenski" target="_blank" rel="noopener">Trump asegura tuvo una «buena» reunión con Zelenski</a></h3>
-    <time>hace 1 h</time>
-  </div>
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">Noticel</span>
-    <h3><a href="https://noticel.com/ultima-hora/20260730/el-navy-transfiere-tres-parcelas-para-continuar-el-redesarrollo-de-roosevelt-roads/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=el-navy-transfiere-tres-parcelas-para-continuar-el-redesarrollo-de-roosevelt-roads" target="_blank" rel="noopener">El Navy transfiere tres parcelas para continuar el redesarrollo de Roosevelt Roads</a></h3>
-    <time>hace 1 h</time>
-  </div>
+    <span class="src">Metro PR</span>
+    <h3><a href="https://www.metro.pr/noticias/2026/07/30/junta-de-sindicos-remueve-al-presidente-de-la-universidad-interamericana/" target="_blank" rel="noopener">Junta de Síndicos remueve al presidente de la Universidad Interamericana</a></h3>
+    <time>hace 58 min</time>
+  </div><img class="thumb" src="https://www.metro.pr/api/image/CJOTYYK365DU5OF3S3AOYW366Q.jpg?w=640" alt="" loading="lazy" onerror="this.style.display='none'">
 </article>
 </section>
-    <section class="panel" id="politica">
+    <section class="panel" id="crimen">
+<h2>Crimen y Seguridad</h2>
+<article class="story lead">
+  <div class="story-text">
+    <span class="src">Telemundo PR</span>
+    <h3><a href="https://www.telemundopr.com/noticias/puerto-rico/estaba-en-bancarrota-escalofriante-confesion-de-acusado-de-asesinato-en-casa-de-empeno/2832550/" target="_blank" rel="noopener">“Estaba en bancarrota”: escalofriante confesión de acusado de asesinato en casa de empeño</a></h3>
+    <p class="desc">El hombre acusado por el robo y asesinato de Allan Sahel Cordero Rosario , de 27 años, en una casa de empeño de Quebradillas, confesó a agentes federales que planificó el robo y tomó medidas para evitar ser identificado </p><time>hace 1 min</time>
+  </div><img class="thumb" src="https://media.telemundopr.com/2026/07/image-3-21.jpg?quality=85&amp;strip=all&amp;fit=1500,846" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/ley-y-orden/estas-son-las-cuatro-mujeres-m-s-buscadas-por-la-polic-a-en-puerto-rico/article_b406e73a-9f2a-48c7-80bd-92a43851e963.html" target="_blank" rel="noopener">Estas son las cuatro mujeres más buscadas por la Policía en Puerto Rico</a></h3>
+    <time>hace 38 min</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/9/07/90766b72-70c1-4fbe-91ca-ac605bd21e64/6a6b8261defc7.image.jpg?resize=300%2C208" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/ley-y-orden/policiacas/roban-mercanc-a-de-furg-n-mientras-esperaba-para-descargar-en-tienda-de-carolina/article_e36dbe7f-efca-4fab-ba71-ce60924cf452.html" target="_blank" rel="noopener">Roban mercancía de furgón mientras esperaba para descargar en tienda de Carolina</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/4/a9/4a9e5835-29ae-4dad-82e0-c2e8ee528d78/699c81f97dcae.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/ley-y-orden/autoridades-ocupan-grabaciones-tras-denuncia-de-agresi-n-sexual-a-turista-en-la-placita/article_964bbcd6-596e-412f-b7b7-479d5a8d1b76.html" target="_blank" rel="noopener">Autoridades ocupan grabaciones tras denuncia de agresión sexual a turista en La Placita</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/9/6d/96d8b647-d339-44d0-a66a-0bca7d0b6604/6a42ebe95b809.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">WAPA TV</span>
+    <h3><a href="https://wapa.tv/noticias/locales/federales-arrestan-a-hombre-en-pesquisa-de-alegada-violaci-n-a-probatoria/article_97d4bfc3-8b8b-4411-8458-93cdddc88c51.html" target="_blank" rel="noopener">Federales arrestan a hombre en pesquisa de alegada violación a probatoria</a></h3>
+    <time>hace 1 h</time>
+  </div>
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/seguridad/notas/era-el-amor-de-mi-vida-recaudan-fondos-para-investigacion-privada-tras-asesinato-de-hombre-de-ohio-en-luquillo/" target="_blank" rel="noopener">“Era el amor de mi vida”: recaudan fondos para investigación privada tras asesinato de hombre de Ohio en Luquillo</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/VRC55ROILJCW5I6DL5B52EJUTM.png?auth=481318d80887f7614d910346841eb05e810d46b2d458609a31b5f91998ad7b30&amp;smart=true&amp;width=507&amp;height=380" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/ley-y-orden/gobernadora-firma-leyes-para-proteger-beneficios-de-polic-as-retirados-horas-antes-de-manifestaci-n/article_c5ed4963-a77e-4c6e-b1b1-2f2f1178339f.html" target="_blank" rel="noopener">Gobernadora firma leyes para proteger beneficios de policías retirados horas antes de manifestación</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/9/bd/9bd95cb4-7c40-4755-82d2-bee3b35baf66/6a54fe9d9b053.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/seguridad/notas/una-de-las-mas-buscadas-arrestan-a-mujer-por-falsificar-cheque-de-un-centro-de-cuido-de-adultos-mayores/" target="_blank" rel="noopener">Una de las más buscadas: arrestan a mujer por falsificar cheque de un centro de cuido de adultos mayores</a></h3>
+    <time>hace 4 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/GEF3VZM3TJHJPGBG4PV6HWFRDU.jpg?auth=ca98d80d45b6014e5558fb78570812f0cde8cc435a8c71495db8c5bf0ed23a6b&amp;smart=true&amp;width=6960&amp;height=4640" alt="" loading="lazy" onerror="this.style.display='none'">
+</article>
+</section><section class="panel" id="politica">
 <h2>Política y Gobierno</h2>
 <article class="story lead">
   <div class="story-text">
     <span class="src">El Nuevo Día</span>
     <h3><a href="https://www.elnuevodia.com/noticias/tribunales/notas/con-grasa-en-el-rostro-y-una-glock-el-macabro-plan-detras-del-robo-mortal-en-una-casa-de-empeno-en-quebradillas/" target="_blank" rel="noopener">Con grasa en el rostro y una Glock: el macabro plan detrás del robo mortal en una casa de empeño en Quebradillas</a></h3>
-    <p class="desc">Una declaración jurada del FBI dejó al descubierto la confesión del acusado Reinaldo Fernández González</p><time>hace 7 min</time>
+    <p class="desc">Una declaración jurada del FBI dejó al descubierto la confesión del acusado Reinaldo Fernández González</p><time>hace 22 min</time>
   </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/3CTPDRFYXRGXVDWTLLCMDI3FLE.jpg?auth=0fe4140f6bcab40f36711334557dc547abc3593db4403ea77f2d896f7ca46d3a&amp;smart=true&amp;width=1108&amp;height=900" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/noticias/policia-tribunales/notas/muere-capitan-de-catamaran-tras-lanzarse-al-mar-al-ver-una-embarcacion-a-la-deriva/" target="_blank" rel="noopener">Muere capitán de catamarán tras lanzarse al mar al ver una embarcación a la deriva</a></h3>
-    <p class="desc">Pidió un salvavidas luego de entrar al agua, pero se hundió inmediatamente.</p><time>hace 15 min</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/WH3CO77VIJH2BLRMRIFDUWKQPA.jpg?auth=42d0609529a82413510f1feb0ac689518117f47c0daa826ffdd90e61b5b3e977&amp;smart=true&amp;width=3888&amp;height=2592" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">NotiUno</span>
+    <h3><a href="https://www.notiuno.com/noticias/gobierno-y-politica/alega-pablo-jos-tiene-donantes-vinculados-a-politank/article_2580b2ae-c6b5-4bc4-8319-a2387d285ead.html" target="_blank" rel="noopener">Alega Pablo José &quot;tiene donantes vinculados a Politank&quot;</a></h3>
+    <time>hace 23 min</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/notiuno.com/content/tncms/assets/v3/editorial/8/e7/8e7d71b6-8267-4ce8-ae93-531025daa804/683994d8c59b9.image.jpg?resize=300%2C229" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/noticias/gobierno-politica/notas/cinco-nuevas-leyes-entran-en-vigor-en-puerto-rico-de-esto-tratan/" target="_blank" rel="noopener">Cinco nuevas leyes entran en vigor en Puerto Rico: de esto tratan</a></h3>
-    <time>hace 17 min</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/XEM2TMZHDJDXZCFXJE3UBYMYRI.jpg?auth=373c4d8dce96218e57e49e8bf34e7e3c98503a892de44d8684d8f57d6a14e603&amp;smart=true&amp;width=2560&amp;height=1707" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/noticias/policia-tribunales/notas/federales-acusan-a-sospechoso-de-matar-a-empleado-de-casa-de-empeno-en-quebradillas/" target="_blank" rel="noopener">Federales acusan a sospechoso de matar a empleado de casa de empeño en Quebradillas</a></h3>
-    <time>hace 56 min</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/CB4DLLRN5FC5BMUGAWCSEB3HFA.jpg?auth=56d19a73a23dd468066e28f95b2351eb94241225d794004dd9184c083b02c405&amp;smart=true&amp;width=1200&amp;height=596" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">Noticel</span>
-    <h3><a href="https://noticel.com/el-tiempo/20260730/habra-aviso-por-calor-extremo-hoy-para-61-de-78-municipios/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=habra-aviso-por-calor-extremo-hoy-para-61-de-78-municipios" target="_blank" rel="noopener">Habrá aviso por calor extremo hoy para 61 de 78 municipios</a></h3>
+    <span class="src">Es Noticia</span>
+    <h3><a href="https://esnoticiapr.com/fortaleza-califica-de-inaceptable-apagon-atribuido-a-error-humano-de-genera-pr/" target="_blank" rel="noopener">Fortaleza califica de “inaceptable” apagón atribuido a error humano de Genera PR</a></h3>
     <time>hace 1 h</time>
   </div>
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/noticias/policia-tribunales/notas/identifican-a-turista-que-murio-ahogado-en-piscina-de-condominio-en-isla-verde/" target="_blank" rel="noopener">Identifican a turista que murió ahogado en piscina de condominio en Isla Verde</a></h3>
+    <span class="src">NotiUno</span>
+    <h3><a href="https://www.notiuno.com/noticias/gobierno-y-politica/califican-de-inaceptable-apag-n-atribuido-a-error-humano/article_81f5b7f6-dc46-499f-b9f5-bcebe8c511fe.html" target="_blank" rel="noopener">Califican de “inaceptable” apagón atribuido a error humano</a></h3>
     <time>hace 1 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/DAGXVAVY4NHGXBJBOAQ2NNEHQI.jpg?auth=1250db355b80f0166a34c834bd435a40c1fce7623816c5c66bfe4d38bdd8a31d&amp;smart=true&amp;width=1200&amp;height=1040" alt="" loading="lazy" onerror="this.style.display='none'">
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/notiuno.com/content/tncms/assets/v3/editorial/f/74/f74bf6c2-332f-4e8e-afb3-c858695b66af/6a2ad93ea7497.image.jpg?resize=300%2C183" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Noticel</span>
-    <h3><a href="https://noticel.com/noticias/20260730/el-escandalo-de-corrupcion-que-sacude-al-gobierno-de-petro-a-dias-de-terminar-su-mandato/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=el-escandalo-de-corrupcion-que-sacude-al-gobierno-de-petro-a-dias-de-terminar-su-mandato" target="_blank" rel="noopener">El escándalo de corrupción que sacude al Gobierno de Petro a días de terminar su mandato</a></h3>
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/noticias/policia-tribunales/notas/pillos-roban-mercancia-de-camion-mientras-se-caia-la-carga/" target="_blank" rel="noopener">Pillos roban mercancía de camión mientras se caía la carga</a></h3>
     <time>hace 2 h</time>
-  </div>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/MEXVIOOIPBHKDGCCPPP4X47SGU.jpg?auth=edfa1b2957057a26c9b32470ab2423a4dcf52c731ec4d481b9f9aee9902c0646&amp;smart=true&amp;width=5711&amp;height=3807" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Telemundo PR</span>
-    <h3><a href="https://www.telemundopr.com/noticias/puerto-rico/precaucion-emiten-aviso-de-calor-para-61-municipios-de-puerto-rico/2832341/" target="_blank" rel="noopener">¡Precaución! Emiten aviso de calor para 61 municipios de Puerto Rico</a></h3>
-    <time>hace 4 h</time>
-  </div><img class="thumb" src="https://media.telemundopr.com/2024/08/calor-extremo.png?fit=1200,675&amp;quality=85&amp;strip=all" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/gobierno/juan-dalmau-tilda-a-pablo-jos-hern-ndez-de-francisco-domenech-wannabe/article_45ae69a0-4e90-4d2f-a321-cb8a3dd51fe4.html" target="_blank" rel="noopener">Juan Dalmau tilda a Pablo José Hernández de &quot;Francisco Domenech wannabe&quot;</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/f/76/f76ac30d-e5bf-41fc-aca9-a10696d40266/6a298eccedd2c.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/deportes/futbol/notas/te-enamoraste-del-futbol-con-el-mundial-ahora-sigue-el-viaje-con-la-seleccion-de-puerto-rico/" target="_blank" rel="noopener">¿Te enamoraste del fútbol con el Mundial? Ahora sigue el viaje con la Selección de Puerto Rico</a></h3>
-    <time>hace 7 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/NECXUVSGHFEPDOJDVVVH6YEPIY.jpg?auth=ea1df35b67479a034041203f3e2e84dd6b92a391fabc15f9739432b889ff6237&amp;smart=true&amp;width=5105&amp;height=3403" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">NotiUno</span>
+    <h3><a href="https://www.notiuno.com/noticias/seguridad-y-justicia/le-roban-veh-culo-alquilado-a-punta-de-pistola-en-luquillo/article_8a94d7c0-63e5-47d7-862f-1448468a1dcd.html" target="_blank" rel="noopener">Le roban vehículo alquilado a punta de pistola en Luquillo</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/notiuno.com/content/tncms/assets/v3/editorial/5/2c/52cb999a-ebeb-11e8-ae0c-93ad077f67c2/5bf299a0b9eb0.image.jpg?crop=613%2C365%2C0%2C0&amp;resize=300%2C179&amp;order=crop%2Cresize" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">NotiUno</span>
+    <h3><a href="https://www.notiuno.com/noticias/seguridad-y-justicia/roban-prendas-relojes-y-5-mil-d-lares-de-joyer-a/article_6a961ae5-2250-4631-ab5e-9af8db8a5fc4.html" target="_blank" rel="noopener">Roban prendas, relojes y 5 mil dólares de joyería</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/notiuno.com/content/tncms/assets/v3/editorial/3/ed/3ed2984a-626b-11ec-8521-0b023adb7003/61c1e63ff334e.image.png?resize=300%2C219" alt="" loading="lazy" onerror="this.style.display='none'">
 </article>
 </section><section class="panel" id="economia">
 <h2>Economía y Negocios</h2>
 <article class="story lead">
   <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/noticias/puerto-rico/notas/varios-pueblos-se-quedarian-sin-luz-por-trabajos-de-luma/" target="_blank" rel="noopener">Varios pueblos se quedarían sin luz por trabajos de LUMA</a></h3>
-    <p class="desc">Harán labores en subestaciones y remoción de vegetación peligrosa.</p><time>hace 3 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/VNWTGLOWWVDGZLEYZNH3IXUEJY.JPG?auth=adcefdd78c00e597b8a81490c3ba51394374b2ee308554fb3f5b0797787857bf&amp;smart=true&amp;width=6000&amp;height=4000" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/negocios/empresas-comercios/notas/casa-ronald-mcdonald-recauda-fondos-para-comprar-su-sede-en-santurce/" target="_blank" rel="noopener">Casa Ronald McDonald recauda fondos para comprar su sede en Santurce</a></h3>
+    <p class="desc">Luego de la quiebra del Hospital de Niños San Jorge, la nueva administración no puede asumir el peso de la organización que ha apoyado a unas 25,000 familias desde sus inicios</p><time>hace 38 min</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/3GXEIMPEWFB7DEK63SAW2AIYPY.png?auth=6b2ffc2c26c269861827cc6de857412ce1865423496d25e4c722053c13b97326&amp;smart=true&amp;width=1086&amp;height=1448" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/negocios/empresas-comercios/notas/ocean-lab-estrena-sede-de-manufactura-para-competir-con-las-cervezas-importadas/" target="_blank" rel="noopener">Ocean Lab estrena sede de manufactura para competir con las cervezas importadas</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/33FUNCTPM5FMTG6ZUTQDLUVVP4.JPG?auth=d24523e825019413c8166681c85fd105200078f8febda6b0eada0bc45a85257f&amp;smart=true&amp;width=5219&amp;height=3479" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.elnuevodia.com/negocios/consumo/notas/mas-cara-la-lechuga-en-estados-unidos-atribuyen-precios-al-calor-y-al-brote-de-ciclosporiasis/" target="_blank" rel="noopener">Más cara la lechuga en Estados Unidos: atribuyen precios al calor y al brote de ciclosporiasis</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/KMHSBLHZKFCMZDO6ZBPJFX4FRI.jpg?auth=2e999a2921bbe6e9178f79eebd611b803f9fc8e0fdf85742570d3910de7d349a&amp;smart=true&amp;width=512&amp;height=321" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Metro PR</span>
+    <h3><a href="https://www.metro.pr/noticias/2026/07/30/el-castigo-impuesto-a-estudiante-frances-por-lamer-un-sorbeto-en-singapur/" target="_blank" rel="noopener">El castigo impuesto a estudiante francés por lamer un sorbeto en Singapur</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.metro.pr/api/image/LQGBMIVIB5CE5EC3CMPDUDLMVA.jpg?w=640" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Metro PR</span>
+    <h3><a href="https://www.metro.pr/noticias/2026/07/30/que-pasara-con-politank-empresa-consigue-prorroga-para-responder-a-las-multas-del-ddec/" target="_blank" rel="noopener">¿Qué pasará con Politank? Empresa consigue prórroga para responder a las multas del DDEC</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.metro.pr/api/image/Y5AK6S7ZDNCU5KKT5GZ47VUZN4.jpeg?w=640" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/negocios/empresas-comercios/notas/tommys-express-invertira-7-millones-en-su-primer-centro-de-lavado-de-autos-en-puerto-rico/" target="_blank" rel="noopener">La cadena de lavado de autos Tommy’s Express revela su plan en Puerto Rico</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/U2GAWYRQR5DWVIP7QJVEBOGIN4.JPG?auth=e81b93af8a43e4344b42b6fd84f8bb46bf460fe3ad13529649b1a4843c035bc2&amp;smart=true&amp;width=6000&amp;height=3376" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.elnuevodia.com/negocios/economia/notas/en-2200-millones-el-impacto-economico-de-las-empresas-de-john-paulson-en-la-isla/" target="_blank" rel="noopener">En $2,200 millones el impacto económico de las empresas de John Paulson en la isla</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/4RM2AMB3I5C4HP6TCZRRXCJFSI.jpg?auth=2ae65cfc7ff532a74fb131286c2c789417f0e7fbf236a35618197d9d2bc058fa&amp;smart=true&amp;width=5280&amp;height=3956" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/el-mundo/golpe-al-turismo-y-la-industria-r-o-danubio-alcanza-un-m-nimo-hist-rico/article_4c5df031-a6ce-59d1-abf8-bd650b6cd001.html" target="_blank" rel="noopener">Golpe al turismo y la industria: Río Danubio alcanza un mínimo histórico por la sequía</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/a/b3/ab351b14-9fe4-54e3-a24c-b4b481e529b6/6a6b5a7045e12.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/economia/econom-a-de-estados-unidos-crece-un-1-5-mientras-la-inflaci-n-sigue-alta/article_f4f05bc5-db69-519c-a91f-afbd714c6492.html" target="_blank" rel="noopener">Economía de Estados Unidos crece un 1.5% mientras la inflación sigue alta</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/0/cc/0cc6f629-cbc5-566c-9d93-e1f9e4af3253/6a6b51f7c6795.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/noticias/locales/notas/luma-energy-reemplazara-13-postes-en-la-comunidad-islote-de-arecibo-mucho-duro-eso-estaba-podrido/" target="_blank" rel="noopener">LUMA Energy reemplazará 13 postes en la comunidad Islote de Arecibo tras colapso el fin de semana: “Eso estaba podrido”</a></h3>
+    <time>hace 4 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/JWJAPONWVJHQ3BBL2D24SLPSIM.png?auth=5ed6ad8fdd8fd991ee4293de37e7ab678e9a732f2bfaca610b173eccae7cd015&amp;smart=true&amp;width=768&amp;height=1024" alt="" loading="lazy" onerror="this.style.display='none'">
 </article>
 </section><section class="panel" id="deportes">
 <h2>Deportes</h2>
 <article class="story lead">
   <div class="story-text">
-    <span class="src">Noticel</span>
-    <h3><a href="https://noticel.com/deportes/20260730/medallas-de-oro-plata-y-dos-de-bronce-para-p-r-en-la-jornada-ayer-de-los-centroamericanos/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=medallas-de-oro-plata-y-dos-de-bronce-para-p-r-en-la-jornada-ayer-de-los-centroamericanos" target="_blank" rel="noopener">Medallas de oro, plata y dos de bronce para P.R. en la jornada ayer de los Centroamericanos</a></h3>
-    <p class="desc">Puerto Rico añadió el miércoles una medalla de oro, una de plata y dos de bronce y aseguró un puesto en la final del voleibol masculino durante los Vigesimoquintos Juegos Centroamericanos y del Caribe Santo Domingo 2026.</p><time>hace 1 h</time>
-  </div>
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/deportes/en-vivo-la-delegaci-n-boricua-en-los-centroamericanos-2026-logros-retos-y-lo-que/article_43be5bda-e64c-4139-9031-7e2a5ec5fee3.html" target="_blank" rel="noopener">EN VIVO: La delegación boricua en los Centroamericanos 2026: logros, retos y lo que viene</a></h3>
+    <time>hace 32 min</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/e/ad/ead2f44a-c4c7-4276-9540-3fa97d2db95e/6a6a0366a9b11.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Telemundo PR</span>
-    <h3><a href="https://www.telemundopr.com/deportes-5/puerto-rico-logra-medallas-en-surf-natacion-y-bolos-en-santo-domingo-2026/2832491/" target="_blank" rel="noopener">Puerto Rico logra medallas en surf, natación y bolos en Santo Domingo 2026</a></h3>
-    <time>hace 4 h</time>
-  </div><img class="thumb" src="https://media.telemundopr.com/2026/07/Foto-portada-5-3.png?fit=1920,1080&amp;quality=85&amp;strip=all" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">Metro PR</span>
+    <h3><a href="https://www.metro.pr/deportes/2026/07/30/kia-buscara-otra-victoria-en-el-campeonato-de-circuito-de-puerto-rico/" target="_blank" rel="noopener">Kia buscará otra victoria en el campeonato de circuito de Puerto Rico</a></h3>
+    <time>hace 35 min</time>
+  </div><img class="thumb" src="https://www.metro.pr/api/image/ZMIUBEPRF5G2NAEHGCQZEJN7A4.jpeg?w=640" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">Telemundo PR</span>
-    <h3><a href="https://www.telemundopr.com/deportes-5/juegos-centroamericanos-y-del-caribe/medallero-boricua-ya-sumamos-19-medallas-en-santo-domingo-2026/2831416/" target="_blank" rel="noopener">Medallero boricua: Puerto Rico suma 33 medallas en Santo Domingo 2026</a></h3>
-    <time>hace 5 h</time>
-  </div><img class="thumb" src="https://media.telemundopr.com/2026/07/4922ed9ee0405b490d31502637c8be0ade42f6ae.jpg?quality=85&amp;strip=all&amp;fit=1280,854" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/deportes/baloncesto/notas/criollos-con-urgencia-de-ganar-en-casa-no-significa-que-tengamos-una-victoria-asegurada/" target="_blank" rel="noopener">Criollos con urgencia de ganar en casa: “No significa que tengamos una victoria asegurada”</a></h3>
-    <time>hace 7 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/NRNRHSX7CRBTFCQZ5R5ZLIBVPE.JPEG?auth=6754f597b433191f5c992c7efba2b79995ced58e4a8b99c00f231e30f3b875dc&amp;smart=true&amp;width=2982&amp;height=1988" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">WAPA TV</span>
+    <h3><a href="https://wapa.tv/noticias/deportes/uefa-se-le-planta-a-la-fifa-por-querer-privatizar-el-mundial-boicot-si-no/article_73ac59f9-ba58-49f8-8577-ed17ef8b1fc2.html" target="_blank" rel="noopener">UEFA se le planta a la FIFA por querer privatizar el Mundial: boicot si no desiste</a></h3>
+    <time>hace 54 min</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/wapa.tv/content/tncms/assets/v3/editorial/9/95/9956c7d6-d15c-4cf2-a762-152dd9867ff1/6a6b879431fd6.image.jpg?resize=300%2C200" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/deportes/baloncesto/notas/los-santeros-recuperan-ventaja-contra-los-leones-en-la-final-de-la-conferencia-b/" target="_blank" rel="noopener">Los Santeros recuperan ventaja contra los Leones en la final de la Conferencia B</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/5RTWLMK2YRD5RLGSS5MGAADEXQ.JPEG?auth=3bc023577bd74d1a58ccdc2dbdf9ffb4284648b581111b7deb17949dd6157c72&amp;smart=true&amp;width=3984&amp;height=2656" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.elnuevodia.com/deportes/beisbol/notas/la-pareja-boricua-de-voleibol-de-playa-adelanta-a-semifinales-en-los-juegos-santo-domingo-2026/" target="_blank" rel="noopener">La pareja boricua de voleibol de playa adelanta a semifinales en los Juegos Santo Domingo 2026</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/YIYG3RNZNFD3JHIBXN7MMCBHSE.jpg?auth=c5939cdb431bcfcf8b3262c1c6dad1c27506829a9b1ca233cda47273f3451b4e&amp;smart=true&amp;width=4635&amp;height=3090" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">El Nuevo Día</span>
+    <h3><a href="https://www.elnuevodia.com/deportes/baloncesto/notas/rigoberto-mendoza-el-retorno-dominante-del-vikingo-al-bsn-con-los-santeros/" target="_blank" rel="noopener">Rigoberto Mendoza: el retorno dominante del “Vikingo” al BSN con los Santeros</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/LYAY65D3ORHOTA5ADLLKXNJZZE.JPEG?auth=492d90da693d59e9f0c7455822cf2f63aabeb810c2b901102b82eca1a6d13864&amp;smart=true&amp;width=2614&amp;height=1743" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/deportes/baloncesto/notas/los-santeros-vuelven-a-defender-su-cancha-y-toman-ventaja-en-la-final-de-la-conferencia-b/" target="_blank" rel="noopener">Los Santeros vuelven a defender su cancha y toman ventaja en la final de la Conferencia B</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/5RTWLMK2YRD5RLGSS5MGAADEXQ.JPEG?auth=3bc023577bd74d1a58ccdc2dbdf9ffb4284648b581111b7deb17949dd6157c72&amp;smart=true&amp;width=3984&amp;height=2656" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.primerahora.com/deportes/voleibol/notas/navas-y-gonzalez-avanzan-a-la-fase-semifinal-del-voleibol-de-playa-de-santo-domingo-2026/" target="_blank" rel="noopener">Navas y González avanzan a la fase semifinal del voleibol de playa de Santo Domingo 2026</a></h3>
+    <time>hace 1 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/2LBTDB6ULNBEHPKYH63G2EOJJM.jpg?auth=7f14786d991f54a0e60dfa8afa7c4fef145b21f01f62456b67f3101c49365bf7&amp;smart=true&amp;width=5568&amp;height=3712" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/deportes/otros-deportes/notas/doble-podio-en-los-trios-del-boliche-en-santo-domingo-2026/" target="_blank" rel="noopener">Doble podio en los tríos del boliche en Santo Domingo 2026</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/YQDGQMS45RGUJN4XAT6MERRQX4.jpg?auth=6b0e390894dbec85a8712667eb00a06a3fe0262adbee171ee3060b0b44309c92&amp;smart=true&amp;width=1200&amp;height=800" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/deportes/futbol/notas/aumenta-la-oposicion-al-plan-de-infantino-de-recurrir-a-fondos-de-capital-de-riesgo-para-financiar-el-mundial/" target="_blank" rel="noopener">Aumenta la oposición al plan de Infantino de recurrir a fondos de capital de riesgo para financiar el Mundial</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/6CNJ4G5MVREOPKDF225FCKHB24.jpg?auth=704081a3a47265e6bfbbf4764c2cb41bc0de69c081653889061aa14c630e96f6&amp;smart=true&amp;width=512&amp;height=365" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
-    <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/deportes/otros-deportes/notas/ella-busquets-de-escuchar-las-historias-de-su-padre-a-escribir-las-suyas/" target="_blank" rel="noopener">Ella Busquets: de escuchar las historias de su padre Ricardo a escribir las suyas</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/ZD27MF5KTRCUBKLO52X5RB2JOY.jpeg?auth=0e8dd565dbb445039643c5eda816524bd0346df2ed4975d11f99ba7f644f86b1&amp;smart=true&amp;width=1200&amp;height=1600" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">El Vocero</span>
+    <h3><a href="https://www.elvocero.com/deportes/puerto-rico-firma-un-empate-hist-rico-ante-m-xico-en-santo-domingo-2026/article_c3b72911-a258-41c4-a14f-1afcd4a87e85.html" target="_blank" rel="noopener">Puerto Rico firma un empate histórico ante México en Santo Domingo 2026</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/elvocero.com/content/tncms/assets/v3/editorial/2/34/2344dc82-7941-4547-80cf-8671339ec1c8/6a6b6e16bce9c.image.jpg?resize=300%2C240" alt="" loading="lazy" onerror="this.style.display='none'">
 </article>
 </section><section class="panel" id="entretenimiento">
 <h2>Entretenimiento y Cultura</h2>
 <article class="story lead">
   <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/entretenimiento/ph-mas-coge-calle/notas/gozate-el-fin-de-semana-33/" target="_blank" rel="noopener">¡Gózate el fin de semana!</a></h3>
-    <p class="desc">Toma nota de todas las actividades que hay alrededor de la Isla para que planifiques tu wikén.</p><time>hace 7 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/B56OUGQ5DRFMZFTJDLP2J7675M.jpg?auth=cf3c0271c7da09fcfa1f429ca951aeab00da1be38cb7846ed3a39d59f12db01f&amp;smart=true&amp;width=1660&amp;height=1328" alt="" loading="lazy" onerror="this.style.display='none'">
+    <span class="src">Metro PR</span>
+    <h3><a href="https://www.metro.pr/entretenimiento/2026/07/30/karol-g-anuncia-nuevo-album-no-me-arrepiento-de-sentir-tanto-saldra-el-7-de-agosto/" target="_blank" rel="noopener">Karol G anuncia nuevo álbum: ‘No me arrepiento de sentir tanto’ saldrá el 7 de agosto</a></h3>
+    <p class="desc">La cantante colombiana hizo el anuncio durante un concierto en Canadá, en plena gira mundial de Tropicoqueta</p><time>hace 5 min</time>
+  </div><img class="thumb" src="https://www.metro.pr/api/image/SPSU6ZQ25FCKNC6QDTVQ6BL2X4.jpg?w=640" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/entretenimiento/ph-mas-coge-calle/notas/llega-el-naqui-fest-un-festival-de-comida-musica-y-emprendimiento-en-juana-diaz/" target="_blank" rel="noopener">Llega el Ñaqui Fest: un festival de comida, música y emprendimiento en Juana Díaz</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/GKJSXDL76NGENM2DQNHFRRJTNA.jpg?auth=6f1f828887cfe1b51c9f29fdae6bad9aeb7bd6db15888e996e69a9935568f457&amp;smart=true&amp;width=1440&amp;height=1799" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.primerahora.com/entretenimiento/cine-tv/notas/giselle-blondet-yo-he-empezado-de-cero-muchas-veces/" target="_blank" rel="noopener">Giselle Blondet: “Yo he empezado de cero muchas veces”</a></h3>
+    <time>hace 11 min</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/GRSWFQMSLVERTKULLDSM2XE4HU.jpg?auth=818d8e7915d754af07ec3a9176fdd5a58f31781ebfb061b6c8bedb6aaf21d80d&amp;smart=true&amp;width=670&amp;height=785" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/entretenimiento/ph-mas-coge-calle/notas/la-historia-de-amor-detras-de-sur-barra-nikkei-en-santurce/" target="_blank" rel="noopener">La historia de amor detrás de SUR Barra Nikkei en Santurce</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/STBLCIVFUZD7XCQ3VWWETPGCOY.jpg?auth=c81483e012889895be95bca145e25ad3c49fe24a2b3d58abdea00b9bbf5b2f66&amp;smart=true&amp;width=6000&amp;height=4000" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.primerahora.com/entretenimiento/notas/diaspora-boricua-reconoce-a-nuestras-divas-de-la-actuacion/" target="_blank" rel="noopener">Diáspora boricua reconoce a nuestras “divas” de la actuación</a></h3>
+    <time>hace 38 min</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/MV7KYSHZWBC2DIJ7R46KOCY5O4.png?auth=f547844db8bf75909d82015127167d2f090a26aafece336a46dc45b2b35c5752&amp;smart=true&amp;width=1080&amp;height=1190" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">Primera Hora</span>
+    <h3><a href="https://www.primerahora.com/entretenimiento/cine-tv/notas/estreno-estas-son-las-razones-para-no-perderte-spider-man-a-brand-new-day/" target="_blank" rel="noopener">Estreno: Estas son las razones para no perderte “Spider-Man: A Brand New Day”</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/RKEVC67XONHWZKEPMRTZHY22UQ.jpg?auth=3cec2ae4718f091024bbf1cd43c216a4958ad4a2705af6109213047d07dfa881&amp;smart=true&amp;width=4000&amp;height=2666" alt="" loading="lazy" onerror="this.style.display='none'">
+</article><article class="story">
+  <div class="story-text">
+    <span class="src">WAPA TV</span>
+    <h3><a href="https://wapa.tv/noticias/entretenimiento/alanis-qui-ones-y-kelvin-mel-ndez-celebran-su-primer-a-o-al-frente-de/article_1837833d-ad79-49ea-b355-143c54b6ed8e.html" target="_blank" rel="noopener">Alanis Quiñones y Kelvin Meléndez celebran su primer año al frente de Noticentro Fin de Semana</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://bloximages.newyork1.vip.townnews.com/wapa.tv/content/tncms/assets/v3/editorial/c/3e/c3eda61c-a7cb-4eaf-8d29-6debe7b56084/6a6b7c4329d02.image.jpg?resize=300%2C366" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/entretenimiento/peliculas-series/notas/spider-man-brand-new-day-el-regreso-del-heroe-mas-humano-de-marvel/" target="_blank" rel="noopener">“Spider-Man: Brand New Day”: un gran regreso para el héroe más humano de Marvel</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/FTIJOFGJTJGK3EO645643GZIFE.jpg?auth=1852b1ddb9374084a497cafe777cf11873661babed8e858c5b33d94f6fcbe5c3&amp;smart=true&amp;width=4000&amp;height=2666" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.elnuevodia.com/entretenimiento/farandula/notas/miss-universe-revela-los-hoteles-donde-se-quedaran-las-candidatas/" target="_blank" rel="noopener">Miss Universe revela los hoteles donde se quedarán las candidatas en Puerto Rico</a></h3>
+    <time>hace 2 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/ZPAHGVDNSJENBATSDFYNYRSXGY.JPG?auth=4b34ac41b4cb9ec945b84390f923adf8165e4d64f467cde7146a111620d4c70b&amp;smart=true&amp;width=5781&amp;height=3854" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/entretenimiento/peliculas-series/notas/nos-quedo-espectacular-el-nuevo-rumbo-de-spider-man-convence-a-su-elenco/" target="_blank" rel="noopener">“Nos quedó espectacular”: el nuevo rumbo de Spider-Man convence a su elenco</a></h3>
-    <time>hace 8 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/RKEVC67XONHWZKEPMRTZHY22UQ.jpg?auth=3cec2ae4718f091024bbf1cd43c216a4958ad4a2705af6109213047d07dfa881&amp;smart=true&amp;width=4000&amp;height=2666" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">Telemundo PR</span>
-    <h3><a href="https://www.telemundopr.com/entretenimiento/entretenimiento-destacados/aylin-mujica-reintegra-top-chef-vip-tras-muerte-hijo/2832478/" target="_blank" rel="noopener">Aylín Mujica se reintegra a Top Chef VIP tras la muerte de su primogénito, Mauro</a></h3>
-    <time>hace 10 h</time>
-  </div><img class="thumb" src="https://media.telemundopr.com/2026/07/tlmd-aylin-mujica-top-chef-vip.jpg?quality=85&amp;strip=all&amp;fit=1200,675" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.elnuevodia.com/entretenimiento/farandula/notas/carolina-sandoval-esta-oficialmente-divorciada-estoy-tan-contenta/" target="_blank" rel="noopener">Carolina Sandoval está oficialmente divorciada: “Estoy tan contenta”</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/KVKBIKJLL5AD5CDTMISPAK7Z3Y.jpg?auth=55e36f90dc9667fb93d410592cd6ae1869d7637ce7a5ef1923c2b66c3b583447&amp;smart=true&amp;width=3550&amp;height=5325" alt="" loading="lazy" onerror="this.style.display='none'">
 </article><article class="story">
   <div class="story-text">
     <span class="src">El Nuevo Día</span>
-    <h3><a href="https://www.elnuevodia.com/entretenimiento/farandula/notas/emma-la-hija-de-rocky-the-kid-y-jessica-serrano-sorprende-con-su-debut-en-la-radio/" target="_blank" rel="noopener">Emma, la hija de Rocky The Kid y Jessica Serrano, sorprende con su debut en la radio</a></h3>
-    <time>hace 10 h</time>
-  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/VKQ7YQZHLJDP7N2KZR7NGFLJAM.png?auth=0176e694b52857a71eb9f161a5381929fb4c3fe4e139824551acd0ceccd5a54a&amp;smart=true&amp;width=940&amp;height=788" alt="" loading="lazy" onerror="this.style.display='none'">
-</article><article class="story">
-  <div class="story-text">
-    <span class="src">Primera Hora</span>
-    <h3><a href="https://www.primerahora.com/noticias/ciencia-tecnologia/notas/el-sol-desaparecera-por-algunos-minutos-en-agosto-en-algunas-partes-del-planeta/" target="_blank" rel="noopener">El Sol desaparecerá por algunos minutos en agosto en algunas partes del planeta</a></h3>
-    <time>hace 13 h</time>
-  </div><img class="thumb" src="https://www.primerahora.com/resizer/v2/5A6TEAUQHNG3JJORNZQNGTK5H4.jpg?auth=f3eecc39f696cabf6a14418ac099e1512b4f85f6ab0a446c91f0b15fbe5bbeac&amp;smart=true&amp;width=5266&amp;height=3510" alt="" loading="lazy" onerror="this.style.display='none'">
+    <h3><a href="https://www.elnuevodia.com/noticias/estados-unidos/notas/estudiantes-de-una-escuela-en-michigan-reportaron-conducta-de-indole-sexual-por-parte-de-jeffrey-epstein/" target="_blank" rel="noopener">Estudiantes de una escuela en Michigan reportaron conducta de índole sexual por parte de Jeffrey Epstein</a></h3>
+    <time>hace 3 h</time>
+  </div><img class="thumb" src="https://www.elnuevodia.com/resizer/v2/55C2AF54BFDBXAOGDIOMAB2UQA.jpg?auth=304d57e824158ec3fdbb11d009445251960efdf9548592cb658f9aa16f9fc14f&amp;smart=true&amp;width=512&amp;height=341" alt="" loading="lazy" onerror="this.style.display='none'">
 </article>
 </section>
   </div>
   <div class="sticky-col">
+    <section class="panel tally" id="asesinatos">
+      <h2>Asesinatos en 2026</h2>
+      <div class="tally-num">250</div>
+      <div class="tally-cmp up">▲ 28 (+12.6%) vs. mismo periodo de 2025 (222)</div>
+      <time>Datos: Policía de Puerto Rico (NIBRS), hasta el 30 de junio — se publican con ~30 días de rezago y no son estadísticas oficiales certificadas.</time>
+    </section>
     <section class="panel" id="clima">
       <h2>Clima</h2>
       <div class="wx-now"><span class="wx-big">🌫️ 86°F</span><span class="wx-cond">San Juan · Haze</span></div>
       <div class="fc-row">
-  <span class="fc-name">Today</span>
+  <span class="fc-name">This Afternoon</span>
   <span class="fc-emoji">🌫️</span>
   <span class="fc-short">Haze · lluvia 10%</span>
   <span class="fc-temp">86°F</span>
@@ -370,7 +459,7 @@ footer a { color:var(--accent); }
 </div><div class="fc-row">
   <span class="fc-name">Friday Night</span>
   <span class="fc-emoji">🌧️</span>
-  <span class="fc-short">Mostly Clear then Isolated Rain Showers · lluvia 9%</span>
+  <span class="fc-short">Scattered Rain Showers · lluvia 30%</span>
   <span class="fc-temp">80°F</span>
 </div><div class="fc-row">
   <span class="fc-name">Saturday</span>
@@ -395,7 +484,14 @@ footer a { color:var(--accent); }
   <a href="https://www.primerahora.com" target="_blank" rel="noopener">Primera Hora</a> ·
   <a href="https://www.noticel.com" target="_blank" rel="noopener">Noticel</a> ·
   <a href="https://www.telemundopr.com" target="_blank" rel="noopener">Telemundo PR</a> ·
-  <a href="https://www.weather.gov/sju/" target="_blank" rel="noopener">NWS San Juan</a>.
+  <a href="https://www.metro.pr" target="_blank" rel="noopener">Metro PR</a> ·
+  <a href="https://www.wapa.tv" target="_blank" rel="noopener">WAPA TV</a> ·
+  <a href="https://www.notiuno.com" target="_blank" rel="noopener">NotiUno</a> ·
+  <a href="https://radioisla.tv" target="_blank" rel="noopener">Radio Isla</a> ·
+  <a href="https://periodismoinvestigativo.com" target="_blank" rel="noopener">Centro de Periodismo Investigativo</a> ·
+  <a href="https://esnoticiapr.com" target="_blank" rel="noopener">Es Noticia</a> ·
+  <a href="https://www.weather.gov/sju/" target="_blank" rel="noopener">NWS San Juan</a> ·
+  <a href="https://incidenciacriminal.policia.pr.gov/publica/" target="_blank" rel="noopener">Policía de PR — Incidencia Criminal</a>.
   Los titulares enlazan a los artículos originales de cada medio.</p>
 </footer>
 </body>

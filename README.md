@@ -7,11 +7,18 @@ Daily auto-updating dashboard of Puerto Rico news, politics, and weather, styled
 ## Sources
 
 - [El Nuevo Día](https://www.elnuevodia.com) (endi.com)
-- [El Vocero](https://www.elvocero.com) (front page + Gobierno/Política section)
+- [El Vocero](https://www.elvocero.com) (front page + Gobierno/Política + Ley y Orden sections)
 - [Primera Hora](https://www.primerahora.com)
 - [Noticel](https://noticel.com)
 - [Telemundo PR](https://www.telemundopr.com)
+- [Metro PR](https://www.metro.pr)
+- [WAPA TV](https://www.wapa.tv)
+- [NotiUno](https://www.notiuno.com)
+- [Radio Isla](https://radioisla.tv)
+- [Centro de Periodismo Investigativo](https://periodismoinvestigativo.com)
+- [Es Noticia](https://esnoticiapr.com)
 - Weather + alerts: [NWS San Juan](https://www.weather.gov/sju/) (api.weather.gov)
+- Homicide tally: [PRPD Incidencia Criminal](https://incidenciacriminal.policia.pr.gov/publica/) ArcGIS service (NIBRS, ~30-day lag)
 
 ## How it works
 
