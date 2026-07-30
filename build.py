@@ -268,6 +268,7 @@ def render(items, forecast, alerts):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Puerto Rico Hoy — Noticias y Clima</title>
 <meta name="description" content="Resumen diario de noticias, política y clima de Puerto Rico. Fuentes: El Nuevo Día, El Vocero, Primera Hora, Noticel, Telemundo PR y NWS San Juan.">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <style>
 :root {{
   --bg:#ffffff; --surface:#ffffff; --panel:#fff; --border:#dadce0;

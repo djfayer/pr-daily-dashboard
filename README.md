@@ -2,7 +2,7 @@
 
 Daily auto-updating dashboard of Puerto Rico news, politics, and weather, styled after Google News.
 
-**Live site:** https://djfayer.github.io/pr-daily-dashboard/
+**Live site:** https://djfayer.github.io/pr-hoy-e50254bdaa/
 
 ## Sources
 
